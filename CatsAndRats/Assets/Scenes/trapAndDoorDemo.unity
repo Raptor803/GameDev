@@ -1457,6 +1457,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LifeUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7518862236488381811, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 483
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518862236488381811, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 186
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
