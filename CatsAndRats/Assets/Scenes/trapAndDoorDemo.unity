@@ -1373,6 +1373,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 683933183242264493, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 744291c4f1b31ad4599ecf4bb89b463a, type: 3}
+    - target: {fileID: 683933183242264493, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 683933183242264493, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678062177777667161, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678062177777667161, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449027059046180252, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449027059046180252, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449027059046180252, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449027059046180252, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -412
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449027059046180252, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 254
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449027059046180252, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3807657537579621555, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1456,14 +1500,6 @@ PrefabInstance:
     - target: {fileID: 7067829093639476888, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
       propertyPath: m_Name
       value: LifeUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 7518862236488381811, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 483
-      objectReference: {fileID: 0}
-    - target: {fileID: 7518862236488381811, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 186
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
