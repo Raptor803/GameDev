@@ -16,6 +16,8 @@ public class CatCtrl : MonoBehaviour
     private const float JUMP_HEIGHT = 0.5f;
     public const float GROUND_DISTANCE = 0.02f;
     private const float GRAVITY = -9.81f * 0.001f;
+    private LayerMask groundLayer;
+
 
     // Using CharacterController to make movements takes into account the collisions
     private CharacterController characterCtrl;
@@ -27,6 +29,7 @@ public class CatCtrl : MonoBehaviour
         isJumping = false;
         isWalking = false;
         isMovingForward = true;
+
         characterCtrl = GetComponent<CharacterController>();
         m_Animator = GetComponent<Animator>();
 
@@ -40,8 +43,7 @@ public class CatCtrl : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            Debug.Log(IsGrounded());
+        if(Input.GetKeyDown(KeyCode.Space) && IsGrounded()) {
             isJumping = true;
             StartCoroutine(Jump());
         }
@@ -91,17 +93,37 @@ public class CatCtrl : MonoBehaviour
         isJumping = false;
     }
 
-    bool IsGrounded() {
-        Vector3 position = transform.position;
-        Vector3 direction = Vector3.down;
-        float distance = 1.0f;
-        
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, LayerMask.NameToLayer("Floor"));
-        if (hit.collider != null) {
+
+    bool IsGrounded()
+    {
+        // assegniamo come layer del terreno "Floor" che andrà settato nell'ispector
+        groundLayer = LayerMask.GetMask("Floor");
+
+        // raggio leggermente sopra i piedi dele personaggio
+        Vector3 rayOrigin = transform.position + Vector3.up * 0.1f;
+
+        // vogliamo controllare il terreno quindi il raggio è verso il basso
+        Vector3 rayDirection = Vector3.down;
+
+        // distanza
+        float rayDistance = 0.6f; // regolabile se necessario
+
+        // il risulatato sarà messo in hit
+        RaycastHit hit;
+
+        // Verifichiamo se il raggio colpisce un oggetto di layer "Floor" (usando l'ultimo parametro come filtro della condizione) 
+        if (Physics.Raycast(rayOrigin, rayDirection, out hit, rayDistance, groundLayer))
+        {
+            // Se il raggio colpisce un oggetto nel groundLayer, siamo a terra
             return true;
         }
-        
+
+        // non siamo a terra
         return false;
     }
+
+
+
+
 }
 
