@@ -5,7 +5,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 // adds the component to the components menu
-[AddComponentMenu("Banana/CatCtrl")]
 public class CatCtrl : MonoBehaviour
 {
     Animator m_Animator;
@@ -29,9 +28,9 @@ public class CatCtrl : MonoBehaviour
         isJumping = false;
         isWalking = false;
         isMovingForward = true;
+        m_Animator = GetComponent<Animator>();
 
         characterCtrl = GetComponent<CharacterController>();
-        m_Animator = GetComponent<Animator>();
 
         body = GetComponent<Rigidbody>();
         if(body != null) {
@@ -83,32 +82,30 @@ public class CatCtrl : MonoBehaviour
     }
 
     IEnumerator Jump() {
-        //m_Animator.SetFloat("Vert", 1f);
-        //m_Animator.SetFloat("State", 1f);
-        for(float i = 0.5f; i >= 0; i -= 0.007f){
-            yield return characterCtrl.Move(new Vector3(0, i*i*0.3f, 0));
+        for(float i = 0f; i <= 5.0f; i += 0.015f){
+            yield return characterCtrl.Move(new Vector3(0, 
+                10*1/(1+(i-0.8f)*(i-0.8f))*Time.deltaTime, // 1/(1+x^2)
+            0));
         };
-        //m_Animator.SetFloat("State", 0f);
-        //m_Animator.SetFloat("Vert", 0f);
         isJumping = false;
     }
 
 
     bool IsGrounded()
     {
-        // assegniamo come layer del terreno "Floor" che andrà settato nell'ispector
+        // assegniamo come layer del terreno "Floor" che andrï¿½ settato nell'ispector
         groundLayer = LayerMask.GetMask("Floor");
 
         // raggio leggermente sopra i piedi dele personaggio
         Vector3 rayOrigin = transform.position + Vector3.up * 0.1f;
 
-        // vogliamo controllare il terreno quindi il raggio è verso il basso
+        // vogliamo controllare il terreno quindi il raggio ï¿½ verso il basso
         Vector3 rayDirection = Vector3.down;
 
         // distanza
         float rayDistance = 0.6f; // regolabile se necessario
 
-        // il risulatato sarà messo in hit
+        // il risulatato sarï¿½ messo in hit
         RaycastHit hit;
 
         // Verifichiamo se il raggio colpisce un oggetto di layer "Floor" (usando l'ultimo parametro come filtro della condizione) 
