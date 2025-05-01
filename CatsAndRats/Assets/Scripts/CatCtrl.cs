@@ -1,38 +1,29 @@
-using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
 
 [RequireComponent(typeof(CharacterController))]
 public class CatCtrl : MonoBehaviour
 {
-    Animator m_Animator;
-    Boolean isWalking;
-    Boolean isJumping;
-    Boolean isMovingForward;
+    Animator animator;
+    bool walking;
+    bool jumping;
+    bool movingForward;
     public float speed = 1.3f;
-    public float RAY_DISTANCE = 0.12f;
+    public float FLOOR_DISTANCE = 0.12f;
     private const float GRAVITY = -9.81f;
     private float vertVelocity;
 
-    private CharacterController characterCtrl;
-    private Rigidbody body;
+    private CharacterController catCharacterCtrl;
 
     void Start()
     {
-        isJumping = false;
-        isWalking = false;
-        isMovingForward = true;
+        jumping = false;
+        walking = false;
+        movingForward = true;
 
-        m_Animator = GetComponent<Animator>();
-        characterCtrl = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+        catCharacterCtrl = GetComponent<CharacterController>();
 
-        body = GetComponent<Rigidbody>();
-        if(body != null) {
-            body.freezeRotation = true;
-        }
     }
 
     // Update is called once per frame
@@ -42,16 +33,16 @@ public class CatCtrl : MonoBehaviour
         vertVelocity += GRAVITY * 5f * Time.deltaTime; 
         if(IsGrounded() && vertVelocity < 0) {
             vertVelocity = 0;
-            isJumping = false;
+            jumping = false;
         }
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded()) {
-            isJumping = true;
+            jumping = true;
             StartCoroutine(Jump());
         }
 
         // movimento asse orizzontale
         float deltaX = 0;
-        isWalking = false;
+        walking = false;
         
         if(Input.GetKey(KeyCode.RightArrow)) {
             deltaX = speed;
@@ -60,36 +51,36 @@ public class CatCtrl : MonoBehaviour
         }
 
         if(deltaX != 0) {
-            isWalking = true;
+            walking = true;
         }
 
         // gestione della direzione
-        if(deltaX < 0 && isMovingForward) {
-            isMovingForward = false;
-            transform.Rotate(new Vector3(0, 180), Space.World);
-        } else if (deltaX > 0 && !isMovingForward) {
-            isMovingForward = true;
-            transform.Rotate(new Vector3(0, 180), Space.World);
+        if(deltaX < 0 && movingForward) {
+            movingForward = false;
+            transform.eulerAngles = new Vector3(0, -90);
+        } else if (deltaX > 0 && !movingForward) {
+            movingForward = true;
+            transform.eulerAngles = new Vector3(0, 90);
         }
 
         Vector3 movement = new Vector3(deltaX, vertVelocity, 0) * Time.deltaTime;
-        characterCtrl.Move(movement);
+        catCharacterCtrl.Move(movement);
 
         HandleCharacterAnimation();
     }
 
     void HandleCharacterAnimation() {
         // animation
-        if(isJumping) {
-            m_Animator.SetFloat("State", 1f);
+        if(jumping) {
+            animator.SetFloat("State", 1f);
         } else {
-            m_Animator.SetFloat("State", 0f);
+            animator.SetFloat("State", 0f);
         }
 
-        if (isJumping || isWalking) {
-            m_Animator.SetFloat("Vert", 1f);
+        if (jumping || walking) {
+            animator.SetFloat("Vert", 1f);
         } else {
-            m_Animator.SetFloat("Vert", 0f);
+            animator.SetFloat("Vert", 0f);
         }   
     }
 
@@ -117,7 +108,7 @@ public class CatCtrl : MonoBehaviour
         RaycastHit hit;
 
         // Verifichiamo se il raggio colpisce un oggetto di layer "Floor" (usando l'ultimo parametro come filtro della condizione) 
-        if (Physics.Raycast(rayOrigin, rayDirection, out hit, RAY_DISTANCE, groundLayer)) {
+        if (Physics.Raycast(rayOrigin, rayDirection, out hit, FLOOR_DISTANCE, groundLayer)) {
             return true;
         }
 
@@ -125,7 +116,13 @@ public class CatCtrl : MonoBehaviour
         return false;
     }
 
+    public bool IsMovingForward() {
+        return movingForward;
+    }
 
+    public bool IsJumping() {
+        return jumping;
+    }
 
 
 }
