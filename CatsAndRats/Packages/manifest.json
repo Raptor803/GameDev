@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.siccity.gltfutility": "https://github.com/siccity/gltfutility.git",
     "com.unity.ai.navigation": "2.0.6",
     "com.unity.collab-proxy": "2.7.1",
     "com.unity.ide.rider": "3.0.31",
@@ -12,6 +11,7 @@
     "com.unity.timeline": "1.8.7",
     "com.unity.ugui": "2.0.0",
     "com.unity.visualscripting": "1.9.5",
+    "org.khronos.unitygltf": "git@github.com:KhronosGroup/UnityGLTF.git",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
