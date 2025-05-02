@@ -814,6 +814,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6397291155531275063, guid: 44a0de0f766c9634eb66f1d56b7edc9d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2062740680}
+    - targetCorrespondingSourceObject: {fileID: 6397291155531275063, guid: 44a0de0f766c9634eb66f1d56b7edc9d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2062740681}
   m_SourcePrefab: {fileID: 100100000, guid: 44a0de0f766c9634eb66f1d56b7edc9d, type: 3}
 --- !u!1 &330585543
 GameObject:
@@ -1363,6 +1366,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
+  FLOOR_DISTANCE: 0.12
+--- !u!114 &2062740681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062740671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96ba505df7b28067ac0a734a7638d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  CurrentHealth: 100
+  HealthUI: {fileID: 564379414203689220}
 --- !u!1001 &564379414203689219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1504,6 +1523,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+--- !u!223 &564379414203689220 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 312254187492472323, guid: ffb4871ec81324f31af0ad401f65c0e7, type: 3}
+  m_PrefabInstance: {fileID: 564379414203689219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &630275429854091933
 PrefabInstance:
   m_ObjectHideFlags: 0

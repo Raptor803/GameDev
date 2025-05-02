@@ -1,33 +1,33 @@
-using UnityEditor.UI;
 using UnityEngine;
 
-public class Door : MonoBehaviour, IAction
+public class Door : GameUtils.Core.ActionComponent
 {
     [SerializeField] private float openAngle = 90f; // Angolo di apertura
     [SerializeField] private float speed = 2f; // Velocità di apertura
     private bool isOpen = false;
     private Quaternion closedRotation;
     private Quaternion openRotation;
-    public void action()
+
+    public override void Action()
     {
         Debug.Log("porta azionata");
         if (!isOpen)
         {
             StartCoroutine(openDoor());
-        }   
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-     closedRotation = transform.rotation;
-     openRotation = Quaternion.Euler(0, openAngle, 0) * closedRotation;   
+        closedRotation = transform.rotation;
+        openRotation = Quaternion.Euler(0, openAngle, 0) * closedRotation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private System.Collections.IEnumerator openDoor()
     {

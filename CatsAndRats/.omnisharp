@@ -1,0 +1,12 @@
+{
+  "RoslynExtensionsOptions": {
+    "EnableAnalyzersSupport": true,
+    "EnableEditorConfigSupport": true,
+    "AnalyzeOpenFilesOnly": false
+  },
+  "omnisharp": {
+    "sdk": {
+      "path": "/usr/bin/dotnet"
+    }
+  }
+}
