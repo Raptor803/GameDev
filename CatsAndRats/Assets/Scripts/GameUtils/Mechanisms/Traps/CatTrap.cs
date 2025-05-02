@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace GameUtils.Mechanisms.Traps
 {
+    /*
+    * Trap that deals damage only to cats
+    */
     [AddComponentMenu("Traps/CatTrap")]
     public class CatTrap : GameUtils.Core.Trap
     {

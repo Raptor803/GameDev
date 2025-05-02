@@ -1,6 +1,12 @@
 using UnityEngine;
 namespace GameUtils.Core
 {
+    /*
+    * this abstract class handles all the actions
+    * we use when we enter/stay/exit a Unity collider (with isTrigger enabled)
+    * extending this class allows to only implement the logic in the trigger
+    * and not specify in every script the conditions enter/exit/stay and comparing the tag.
+    */
     public abstract class InteractionCollider : MonoBehaviour
     {
         protected bool active = true;

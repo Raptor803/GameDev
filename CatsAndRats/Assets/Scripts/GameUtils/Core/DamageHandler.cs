@@ -3,8 +3,11 @@ using UnityEngine.UI;
 
 namespace GameUtils.Core
 {
+    /*
+    * this is a simple script that allow to handle UI and take damage
+    * we usually attach this script to a GameObject cat/mouse player.
+    */
     [AddComponentMenu("DamageHandler")]
-
     public class DamageHandler : MonoBehaviour
     {
         [SerializeField] public float MaxHealth = 100f;
