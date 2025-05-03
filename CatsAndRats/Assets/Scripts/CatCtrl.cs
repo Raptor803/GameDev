@@ -10,7 +10,7 @@ public class CatCtrl : MonoBehaviour
     bool movingForward;
     public float speed = 1.3f;
     public float FLOOR_DISTANCE = 0.12f;
-    private const float GRAVITY = -9.81f;
+    private const float GRAVITY = -9.81f * 5f;
     private float vertVelocity;
 
     private CharacterController catCharacterCtrl;
@@ -30,7 +30,7 @@ public class CatCtrl : MonoBehaviour
     void Update()
     {
         // movimento asse verticale
-        vertVelocity += GRAVITY * 5f * Time.deltaTime; 
+        vertVelocity += GRAVITY * Time.deltaTime; 
         if(IsGrounded() && vertVelocity < 0) {
             vertVelocity = 0;
             jumping = false;
