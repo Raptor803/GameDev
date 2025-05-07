@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(GravityComponent))]
 public class CatCtrl : MonoBehaviour
 {
     Animator animator;
@@ -9,11 +10,9 @@ public class CatCtrl : MonoBehaviour
     bool jumping;
     bool movingForward;
     public float speed = 1.3f;
-    public float FLOOR_DISTANCE = 0.12f;
-    private const float GRAVITY = -9.81f * 5f;
-    private float vertVelocity;
+    private float deltaY;
 
-    private CharacterController catCharacterCtrl;
+    private CharacterController catController;
 
     void Start()
     {
@@ -22,7 +21,7 @@ public class CatCtrl : MonoBehaviour
         movingForward = true;
 
         animator = GetComponent<Animator>();
-        catCharacterCtrl = GetComponent<CharacterController>();
+        catController = GetComponent<CharacterController>();
 
     }
 
@@ -30,23 +29,23 @@ public class CatCtrl : MonoBehaviour
     void Update()
     {
         // movimento asse verticale
-        vertVelocity += GRAVITY * Time.deltaTime; 
-        if(IsGrounded() && vertVelocity < 0) {
-            vertVelocity = 0;
-            jumping = false;
-        }
-        if(Input.GetKeyDown(KeyCode.Space) && IsGrounded()) {
-            jumping = true;
-            StartCoroutine(Jump());
+        if(GetComponent<GravityComponent>().IsGrounded()) {
+            if(Input.GetKeyDown(KeyCode.Space)){
+                jumping = true;
+                StartCoroutine(Jump());
+            } else {
+                jumping = false;
+                deltaY = 0;
+            }
         }
 
         // movimento asse orizzontale
         float deltaX = 0;
         walking = false;
         
-        if(Input.GetKey(KeyCode.RightArrow)) {
+        if(Input.GetKey(KeyCode.D)) {
             deltaX = speed;
-        } else if(Input.GetKey(KeyCode.LeftArrow)) {
+        } else if(Input.GetKey(KeyCode.A)) {
             deltaX = -speed;
         }
 
@@ -63,8 +62,8 @@ public class CatCtrl : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 90);
         }
 
-        Vector3 movement = new Vector3(deltaX, vertVelocity, 0) * Time.deltaTime;
-        catCharacterCtrl.Move(movement);
+        Vector3 movement = new Vector3(deltaX, deltaY, 0) * Time.deltaTime;
+        catController.Move(movement);
 
         HandleCharacterAnimation();
     }
@@ -87,34 +86,11 @@ public class CatCtrl : MonoBehaviour
 
     IEnumerator Jump() {
         for(float i = 10; i > 5; i -= 0.08f) {
-            vertVelocity = i;
+            deltaY = i;
             yield return true;
         }
     }
 
-
-    bool IsGrounded()
-    {
-        // assegniamo come layer del terreno "Floor" che andr� settato nell'ispector
-        LayerMask groundLayer = LayerMask.GetMask("Floor");
-
-        // raggio leggermente sopra i piedi dele personaggio
-        Vector3 rayOrigin = transform.position + Vector3.up * 0.1f;
-
-        // vogliamo controllare il terreno quindi il raggio � verso il basso
-        Vector3 rayDirection = Vector3.down;
-
-        // il risulatato sar� messo in hit
-        RaycastHit hit;
-
-        // Verifichiamo se il raggio colpisce un oggetto di layer "Floor" (usando l'ultimo parametro come filtro della condizione) 
-        if (Physics.Raycast(rayOrigin, rayDirection, out hit, FLOOR_DISTANCE, groundLayer)) {
-            return true;
-        }
-
-        // non siamo a terra
-        return false;
-    }
 
     public bool IsMovingForward() {
         return movingForward;

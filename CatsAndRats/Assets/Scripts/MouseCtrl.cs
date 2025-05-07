@@ -1,30 +1,34 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(GravityComponent))]
 public class MouseCtrl : MonoBehaviour
 {
     public float speed = 3f;
-    private const float GRAVITY = -9.81f * 100f;
     private int[][] ANGLES = new int[][]{
         new int[]{135,  90, 45},
         new int[]{180,  0,  0},
         new int[]{225,  270, 315}
     };
-    private int xAngleIndex, yAngleIndex;
-    private float deltaX, deltaY, deltaZ;
-    private GameObject cat;
+
+    private enum VER_DIR {DOWN, STILL, UP};
+    private enum HOR_DIR {LEFT, STILL, RIGHT};
+    private HOR_DIR xAngleIndex;
+    private VER_DIR yAngleIndex;
     private const float CAT_MAX_DISTANCE = 0.5f;
     private bool onTop = true;
+    private float deltaX, deltaZ;
+    private GameObject cat;
 
     // Using CharacterController to make movements takes into account the collisions
-    private CharacterController mouseCharCtrl;
+    private CharacterController mouseController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cat = GameObject.FindGameObjectWithTag("cat");
-        mouseCharCtrl = GetComponent<CharacterController>();
-        mouseCharCtrl.enabled = false;
+        mouseController = GetComponent<CharacterController>();
+        mouseController.enabled = false;
     }
 
     // Update is called once per frame
@@ -39,38 +43,31 @@ public class MouseCtrl : MonoBehaviour
 
     void ControlMovement() {
         deltaX = 0;
-        xAngleIndex = 1;
-        if(Input.GetKey(KeyCode.A)) {
+        xAngleIndex = HOR_DIR.STILL;
+        if(Input.GetKey(KeyCode.LeftArrow)) {
             deltaX = -speed;
-            xAngleIndex = 0;
-        } else if(Input.GetKey(KeyCode.D)) {
+            xAngleIndex = HOR_DIR.LEFT;
+        } else if(Input.GetKey(KeyCode.RightArrow)) {
             deltaX = speed;
-            xAngleIndex = 2;
-        }
-
-        if(deltaY < 0) {
-            deltaY = 0;
-        } else {
-            deltaY += GRAVITY * Time.deltaTime;
+            xAngleIndex = HOR_DIR.RIGHT;
         }
 
         deltaZ = 0;
-        yAngleIndex = 1;
-        if(Input.GetKey(KeyCode.W)) {
+        yAngleIndex = VER_DIR.STILL;
+        if(Input.GetKey(KeyCode.UpArrow)) {
             deltaZ = speed;
-            yAngleIndex = 2;
-        } else if(Input.GetKey(KeyCode.S)) {
+            yAngleIndex = VER_DIR.UP;
+        } else if(Input.GetKey(KeyCode.DownArrow)) {
             deltaZ = -speed;
-            yAngleIndex = 0;
+            yAngleIndex = VER_DIR.DOWN;
         }
 
-        if(xAngleIndex * yAngleIndex != 1) {
-            transform.eulerAngles = new Vector3(0, ANGLES[yAngleIndex][xAngleIndex], 0);
+        if(!(xAngleIndex == HOR_DIR.STILL && yAngleIndex == VER_DIR.STILL)) {
+            transform.eulerAngles = new Vector3(0, ANGLES[(int) yAngleIndex][(int) xAngleIndex], 0);
         }
 
-        Vector3 movement = new Vector3(deltaX, deltaY, deltaZ) * Time.deltaTime;
-        print(movement);
-        mouseCharCtrl.Move(movement);
+        Vector3 movement = new Vector3(deltaX, 0, deltaZ) * Time.deltaTime;
+        mouseController.Move(movement);
     }
 
     void CheckInteraction() {
@@ -84,7 +81,8 @@ public class MouseCtrl : MonoBehaviour
     }
 
     void getOnCat() {
-        mouseCharCtrl.enabled = false;
+        GetComponent<GravityComponent>().enabled = false;
+        mouseController.enabled = false;
         transform.SetParent(cat.transform);
         transform.position = cat.transform.position + new Vector3(0, .28f, 0);
 
@@ -94,16 +92,14 @@ public class MouseCtrl : MonoBehaviour
             transform.eulerAngles = new Vector3(0,180,0);
         }
 
-        //transform.Translate(new Vector3(.01f,0,0), Space.Self);
-
         onTop = true;
     }
 
     void getOffCat() {
         transform.SetParent(null);
-        transform.position = cat.transform.position + new Vector3(0, 0, -.12f);
-        print(transform.position);
-        mouseCharCtrl.enabled = true;
+        transform.position = cat.transform.position + new Vector3(0, .28f, -.30f);
+        GetComponent<GravityComponent>().enabled = true;
+        mouseController.enabled = true;
         onTop = false;
     }
 
