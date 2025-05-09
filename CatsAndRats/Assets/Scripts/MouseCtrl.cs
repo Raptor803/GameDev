@@ -104,5 +104,9 @@ public class MouseCtrl : MonoBehaviour
         onTop = false;
     }
 
+    public bool IsOnTop() {
+        return onTop;
+    }
+
 }
 

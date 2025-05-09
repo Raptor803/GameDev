@@ -3,16 +3,19 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
     public float speed = 3f;
+    private Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(0, speed * Time.deltaTime, speed * Time.deltaTime));
+        Vector3 movement = transform.forward * speed * Time.deltaTime
+                        + transform.up * speed * Time.deltaTime;
+        rb.MovePosition(rb.position + movement);
     }
 
 
