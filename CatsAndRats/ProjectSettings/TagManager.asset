@@ -6,6 +6,7 @@ TagManager:
   tags:
   - cat
   - mouse
+  - cannon
   layers:
   - Default
   - TransparentFX

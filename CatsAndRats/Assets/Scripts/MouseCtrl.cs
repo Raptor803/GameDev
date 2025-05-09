@@ -87,9 +87,9 @@ public class MouseCtrl : MonoBehaviour
         transform.position = cat.transform.position + new Vector3(0, .28f, 0);
 
         if(cat.GetComponent<CatCtrl>().IsMovingForward()){
-            transform.eulerAngles = new Vector3(0,0,0);
+            transform.eulerAngles = new Vector3(0,0,45);
         } else {
-            transform.eulerAngles = new Vector3(0,180,0);
+            transform.eulerAngles = new Vector3(0,180,45);
         }
 
         onTop = true;
@@ -97,6 +97,7 @@ public class MouseCtrl : MonoBehaviour
 
     void getOffCat() {
         transform.SetParent(null);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
         transform.position = cat.transform.position + new Vector3(0, .28f, -.30f);
         GetComponent<GravityComponent>().enabled = true;
         mouseController.enabled = true;
