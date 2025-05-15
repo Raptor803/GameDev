@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5536806818457952466}
   - component: {fileID: 5220958827083095303}
   - component: {fileID: 5338461139368680639}
+  - component: {fileID: 2942429105629208028}
   m_Layer: 0
   m_Name: Mouse
   m_TagString: mouse
@@ -42,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6369568976566038860}
-  m_Mesh: {fileID: -329475017675667573, guid: 59c94b9505c7648bb99c2bb6472ccbdd, type: 3}
+  m_Mesh: {fileID: -329475017675667573, guid: 58fd66037aca54225897c668b47ad706, type: 3}
 --- !u!23 &5536806818457952466
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -126,3 +127,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &2942429105629208028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369568976566038860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6908419f66fb946279d3bc2e31df244a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FLOOR_DISTANCE: 0.02
+  MUL: 1

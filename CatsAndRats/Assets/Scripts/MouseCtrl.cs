@@ -71,7 +71,13 @@ public class MouseCtrl : MonoBehaviour
     }
 
     void CheckInteraction() {
-        if(Input.GetKeyDown(KeyCode.F) && Vector3.Distance(transform.position, cat.transform.position) < CAT_MAX_DISTANCE) {
+        float catDistance = Vector3.Distance(transform.position, cat.transform.position);
+        if(catDistance < CAT_MAX_DISTANCE && !onTop) {
+            cat.GetComponent<Outline>().enabled = true;
+        } else {
+            cat.GetComponent<Outline>().enabled = false;
+        }
+        if(catDistance < CAT_MAX_DISTANCE && Input.GetKeyDown(KeyCode.F)) {
             if(onTop) {
                 getOffCat();
             } else {
