@@ -1,3 +1,4 @@
+using GameUtils.Core;
 using System;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace GameUtils.MouseTrap.Traps
     [AddComponentMenu("Traps/MouseTrap")]
     class MouseTrap : GameUtils.Core.Trap
     {
+        [SerializeField] private GameObject cheese;
         protected override void Initialize()
         {
             throw new NotImplementedException();
@@ -19,7 +21,8 @@ namespace GameUtils.MouseTrap.Traps
 
         protected override void OnCatEnter()
         {
-            throw new NotImplementedException();
+            deactivate();
+            // TODO: change graphic as a destroyed mouseTrap
         }
 
         protected override void OnCatExit()
@@ -32,9 +35,20 @@ namespace GameUtils.MouseTrap.Traps
             throw new NotImplementedException();
         }
 
+        protected override void OnDeactivate()
+        {
+            GetMouse().GetComponent<MouseCtrl>().ActivateInput();
+            // eat the cheese and heal the mouse when deactivated
+            Destroy(cheese);
+            GetMouse().GetComponent<DamageHandler>().TakeDamage(-20);
+            
+        }
+
         protected override void OnMouseEnter()
         {
-            throw new NotImplementedException();
+            DamageMouse();
+            // il topo rimane intrappolato
+            GetMouse().GetComponent<MouseCtrl>().DeactivateInput();
         }
 
         protected override void OnMouseExit()
@@ -44,7 +58,13 @@ namespace GameUtils.MouseTrap.Traps
 
         protected override void OnMouseStaying()
         {
-            throw new NotImplementedException();
+            timer += Time.deltaTime;
+            if (timer >= trapCooldown)
+            {
+                DamageMouse();
+                timer = 0f;
+            }
+            
         }
 
         protected override void OnUpdate()

@@ -8,11 +8,12 @@ namespace GameUtils.Core
     * We extend Trap clas to create a new logic of a trap and decided HOW the interaction
     * is performed in the collider and WHEN the damage is applied in our collider logic.
     */
-    public abstract class Trap : GameUtils.Core.InteractionCollider
+    public abstract class Trap : GameUtils.Core.TriggerInteraction
     {
         [SerializeField] protected float damageAmount = 10f;
         [SerializeField] protected bool isLethal = false;
         [SerializeField] protected float trapCooldown = 3f;
+        protected float timer = 0f;
 
         public void DamageCat()
         {

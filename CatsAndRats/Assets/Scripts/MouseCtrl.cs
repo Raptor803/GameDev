@@ -5,6 +5,7 @@ using UnityEngine;
 public class MouseCtrl : MonoBehaviour
 {
     public float speed = 3f;
+    public bool canIMove= true;
     private int[][] ANGLES = new int[][]{
         new int[]{135,  90, 45},
         new int[]{180,  0,  0},
@@ -42,32 +43,35 @@ public class MouseCtrl : MonoBehaviour
     }
 
     void ControlMovement() {
-        deltaX = 0;
-        xAngleIndex = HOR_DIR.STILL;
-        if(Input.GetKey(KeyCode.LeftArrow)) {
-            deltaX = -speed;
-            xAngleIndex = HOR_DIR.LEFT;
-        } else if(Input.GetKey(KeyCode.RightArrow)) {
-            deltaX = speed;
-            xAngleIndex = HOR_DIR.RIGHT;
-        }
+        
+        if( canIMove){
+            deltaX = 0;
+            xAngleIndex = HOR_DIR.STILL;
+            if(Input.GetKey(KeyCode.LeftArrow)) {
+                deltaX = -speed;
+                xAngleIndex = HOR_DIR.LEFT;
+            } else if(Input.GetKey(KeyCode.RightArrow)) {
+                deltaX = speed;
+                xAngleIndex = HOR_DIR.RIGHT;
+            }
 
-        deltaZ = 0;
-        yAngleIndex = VER_DIR.STILL;
-        if(Input.GetKey(KeyCode.UpArrow)) {
-            deltaZ = speed;
-            yAngleIndex = VER_DIR.UP;
-        } else if(Input.GetKey(KeyCode.DownArrow)) {
-            deltaZ = -speed;
-            yAngleIndex = VER_DIR.DOWN;
-        }
+            deltaZ = 0;
+            yAngleIndex = VER_DIR.STILL;
+            if(Input.GetKey(KeyCode.UpArrow)) {
+                deltaZ = speed;
+                yAngleIndex = VER_DIR.UP;
+            } else if(Input.GetKey(KeyCode.DownArrow)) {
+                deltaZ = -speed;
+                yAngleIndex = VER_DIR.DOWN;
+            }
 
-        if(!(xAngleIndex == HOR_DIR.STILL && yAngleIndex == VER_DIR.STILL)) {
-            transform.eulerAngles = new Vector3(0, ANGLES[(int) yAngleIndex][(int) xAngleIndex], 0);
-        }
+            if(!(xAngleIndex == HOR_DIR.STILL && yAngleIndex == VER_DIR.STILL)) {
+                transform.eulerAngles = new Vector3(0, ANGLES[(int) yAngleIndex][(int) xAngleIndex], 0);
+            }
 
-        Vector3 movement = new Vector3(deltaX, 0, deltaZ) * Time.deltaTime;
-        mouseController.Move(movement);
+            Vector3 movement = new Vector3(deltaX, 0, deltaZ) * Time.deltaTime;
+                mouseController.Move(movement);
+        }
     }
 
     void CheckInteraction() {
@@ -112,6 +116,15 @@ public class MouseCtrl : MonoBehaviour
 
     public bool IsOnTop() {
         return onTop;
+    }
+
+    public void DeactivateInput()
+    {
+        canIMove = false;
+    }
+    public void ActivateInput()
+    {
+        canIMove = true;
     }
 
 }

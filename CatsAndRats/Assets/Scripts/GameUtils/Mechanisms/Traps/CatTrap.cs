@@ -28,6 +28,11 @@ namespace GameUtils.Mechanisms.Traps
             throw new System.NotImplementedException();
         }
 
+        protected override void OnDeactivate()
+        {
+            throw new System.NotImplementedException();
+        }
+
         protected override void OnMouseEnter()
         {
             throw new System.NotImplementedException();

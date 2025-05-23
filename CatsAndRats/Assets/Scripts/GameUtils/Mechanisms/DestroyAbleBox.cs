@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DestroyAbleBox : Core.InterationOnTag
+public class DestroyAbleBox : GameUtils.Core.TriggerOntag
 {
     public override void Trigger()
     {
