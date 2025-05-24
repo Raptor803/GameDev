@@ -109,6 +109,7 @@ public class MouseCtrl : MonoBehaviour
         transform.SetParent(null);
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
         transform.position = cat.transform.position + new Vector3(0, .28f, -.30f);
+        GetComponent<GravityComponent>().Reset();
         GetComponent<GravityComponent>().enabled = true;
         mouseController.enabled = true;
         onTop = false;
