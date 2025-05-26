@@ -1496,6 +1496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DestroyableObject
       objectReference: {fileID: 0}
+    - target: {fileID: 1195829132911210792, guid: 12d1265c820a2fe449c445a56d8c8cdb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3197557038006474131, guid: 12d1265c820a2fe449c445a56d8c8cdb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.542

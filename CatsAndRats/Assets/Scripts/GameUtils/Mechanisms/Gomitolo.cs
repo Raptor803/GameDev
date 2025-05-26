@@ -12,7 +12,7 @@ namespace GameUtils.Mechanisms
         public override void Trigger()
         {
             Debug.Log("Collide chiamato da: " + gameObject.name);
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created

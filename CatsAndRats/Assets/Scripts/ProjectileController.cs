@@ -31,7 +31,7 @@ public class ProjectileController : MonoBehaviour
         if(player != null) {
             player.Hurt(1);
         } */  
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 
 }
