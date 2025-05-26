@@ -1,4 +1,4 @@
 public interface IAction
 {
-    public void action();
+    public void Action();
 }
