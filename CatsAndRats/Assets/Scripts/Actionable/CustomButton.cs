@@ -21,18 +21,13 @@ public class CustomButton : MonoBehaviour, IAction
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, target.transform.position);
+        float distance = Vector3.Distance(transform.position, agent.transform.position);
         if (distance < MAX_DISTANCE)
         {
             if (Input.GetKeyDown(activationKey) && HasClearance())
             {
                 target.Action();
             }
-        }
-        else
-        {
-            GetComponent<Outline>().enabled = false;
-            print("ciao");
         }
     }
 

@@ -6,6 +6,7 @@ public class MouseCtrl : MonoBehaviour
 {
     private MovementController movementController;
     private GravityComponent gravityComponent;
+    private CharacterController controller;
 
     private const float CAT_MAX_DISTANCE = 0.5f;
     private Vector3 ON_CAT_OFFSET = new Vector3(0, 0.28f, 0); // offset to position the mouse when it gets on the cat
@@ -20,6 +21,7 @@ public class MouseCtrl : MonoBehaviour
     {
         movementController = GetComponent<MovementController>();
         gravityComponent = GetComponent<GravityComponent>();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -30,19 +32,24 @@ public class MouseCtrl : MonoBehaviour
 
     void CheckInteraction() {
         float catDistance = Vector3.Distance(transform.position, cat.transform.position);
-        /*
+        
         if (catDistance < CAT_MAX_DISTANCE && !onTop)
         {
-            cat.GetComponent<Outline>().enabled = true;
+            cat.GetComponentInChildren<Outline>().enabled = true;
         }
         else
         {
-            cat.GetComponent<Outline>().enabled = false;
-        }*/
-        if(catDistance < CAT_MAX_DISTANCE && Input.GetKeyDown(catKey)) {
-            if(onTop) {
+            cat.GetComponentInChildren<Outline>().enabled = false;
+        }
+        
+        if (catDistance < CAT_MAX_DISTANCE && Input.GetKeyDown(catKey))
+        {
+            if (onTop)
+            {
                 getOffCat();
-            } else {
+            }
+            else
+            {
                 getOnCat();
             }
         } 
@@ -51,8 +58,7 @@ public class MouseCtrl : MonoBehaviour
     void getOnCat() {
         gravityComponent.Deactivate();
         movementController.Deactivate();
-        gravityComponent.enabled = false;
-        movementController.enabled = false;
+        controller.enabled = false;
 
         transform.SetParent(cat.transform);
         transform.position = cat.transform.position + ON_CAT_OFFSET;
@@ -67,8 +73,7 @@ public class MouseCtrl : MonoBehaviour
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
         transform.position = cat.transform.position + OFF_CAT_OFFSET;
 
-        gravityComponent.enabled = true;
-        movementController.enabled = true;
+        controller.enabled = true;
         gravityComponent.Activate();
         movementController.Activate();
         onTop = false;

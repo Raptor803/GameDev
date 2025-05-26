@@ -27,7 +27,7 @@ public class JumpController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (controller.isGrounded && jumpingAllowed)
+        if (gravityComponent.IsGrounded() && jumpingAllowed)
         {
             if (Input.GetKeyDown(jumpKey))
             {
