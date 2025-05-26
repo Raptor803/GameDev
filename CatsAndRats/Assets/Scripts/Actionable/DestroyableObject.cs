@@ -4,7 +4,7 @@ public class DestroyableObject : Actionable
 {
     public override void Action()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 }

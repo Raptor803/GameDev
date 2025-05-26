@@ -6,6 +6,7 @@ public class CustomButton : MonoBehaviour, IAction
     public GameObject agent;
     public Actionable target;
     public const float MAX_DISTANCE = 1f;
+    public KeyCode activationKey = KeyCode.K;
 
     public void Action()
     {
@@ -21,24 +22,50 @@ public class CustomButton : MonoBehaviour, IAction
     void Update()
     {
         float distance = Vector3.Distance(transform.position, target.transform.position);
-        if (Input.GetKeyDown(KeyCode.K) && distance < MAX_DISTANCE)
+        if (distance < MAX_DISTANCE)
         {
-            target.Action();
+            if (Input.GetKeyDown(activationKey) && HasClearance())
+            {
+                target.Action();
+            }
         }
+        else
+        {
+            GetComponent<Outline>().enabled = false;
+            print("ciao");
+        }
+    }
+
+    bool HasClearance()
+    {
+        // raycast from agent to transform and check if there are any obstacles in between
+        // (cannot activate buttons through walls ;))
+        RaycastHit hit;
+        Vector3 direction = (target.transform.position - agent.transform.position).normalized;
+        if (Physics.Raycast(agent.transform.position, direction, out hit, MAX_DISTANCE))
+        {
+            if (hit.collider.gameObject == target.gameObject)
+            {
+                return true; // Clear path to target
+            }
+        }
+        return false; // Obstacle in the way
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "mouse"){
+        if (other.tag == agent.tag)
+        {
             GetComponent<Outline>().enabled = true;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "mouse") {
+        if (other.tag == agent.tag)
+        {
             GetComponent<Outline>().enabled = false;
         }
-    }
+    }   
 
 }
