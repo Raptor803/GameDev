@@ -1,20 +1,31 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class GravityComponent : MonoBehaviour {
+public class GravityComponent : MonoBehaviour
+{
     private const float GRAVITY = -9.81f;
     public float FLOOR_DISTANCE = 0.05f;
     public float MUL = 1f;
     private float deltaY;
-    private CharacterController ctrl;
-    public bool IsFalling {get; private set;}
+    private CharacterController controller;
+    public bool IsFalling { get; private set; }
+    private bool canFall = true;
 
     void Start()
     {
-        ctrl = GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
         deltaY = 0;
     }
+    
     void Update()
+    {
+        if (canFall)
+        {
+            ApplyGravity();
+        }
+    }
+
+    private void ApplyGravity()
     {
         if (IsGrounded() && deltaY < 0)
         {
@@ -27,15 +38,11 @@ public class GravityComponent : MonoBehaviour {
             IsFalling = true;
         }
 
-        ctrl.Move(new Vector3(0, deltaY * Time.deltaTime, 0));
+        controller.Move(new Vector3(0, deltaY * Time.deltaTime, 0));
+
     }
 
-  public void Reset()
-  {
-    deltaY = 0;
-  }
-  
-  public bool IsGrounded()
+    public bool IsGrounded()
     {
         // assegniamo come layer del terreno "Floor" che andr� settato nell'ispector
         LayerMask groundLayer = LayerMask.GetMask("Floor");
@@ -54,5 +61,17 @@ public class GravityComponent : MonoBehaviour {
 
         // non siamo a terra
         return false;
+    }
+
+    public void Activate()
+    {
+        canFall = true;
+        deltaY = 0;
+    }
+
+    public void Deactivate()
+    {
+        canFall = false;
+        deltaY = 0;
     }
 }
