@@ -13,6 +13,19 @@ MonoBehaviour:
   m_Name: MeshoptImport
   m_EditorClassIdentifier: 
   enabled: 1
+--- !u!114 &-7710143596303548325
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59cc7d090dc43ef86b454e445bdbf9a, type: 3}
+  m_Name: AudioExport
+  m_EditorClassIdentifier: 
+  enabled: 0
 --- !u!114 &-7639714681838956844
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -104,6 +117,19 @@ MonoBehaviour:
   m_Name: TextureTransformExport
   m_EditorClassIdentifier: 
   enabled: 1
+--- !u!114 &-2652834687703503807
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d106e4b0674b44e09e9c8d85ba6216df, type: 3}
+  m_Name: AudioImport
+  m_EditorClassIdentifier: 
+  enabled: 0
 --- !u!114 &-1909093484756182411
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -143,10 +169,6 @@ MonoBehaviour:
   m_Name: VisualScriptingExportPlugin
   m_EditorClassIdentifier: 
   enabled: 0
-  debugLogSetting:
-    GltfLog: 1
-    ADBEConsole: 1
-    BabylonLog: 0
   cleanUpAndOptimizeExportedGraph: 1
 --- !u!114 &-74500794671728439
 MonoBehaviour:
@@ -189,6 +211,7 @@ MonoBehaviour:
   - {fileID: -7639714681838956844}
   - {fileID: -5832559196334412340}
   - {fileID: -74500794671728439}
+  - {fileID: -2652834687703503807}
   ExportPlugins:
   - {fileID: 7397170251684434302}
   - {fileID: -1909093484756182411}
@@ -202,6 +225,8 @@ MonoBehaviour:
   - {fileID: 2469274011148976004}
   - {fileID: 1078557137707069168}
   - {fileID: -764164400698771495}
+  - {fileID: -7710143596303548325}
+  - {fileID: 1345120459439714212}
   exportNames: 1
   exportFullPath: 0
   EditorExportTransformMode: 0
@@ -254,6 +279,20 @@ MonoBehaviour:
   KHR_materials_sheen: 1
   KHR_materials_pbrSpecularGlossiness: 1
   KHR_materials_emissive_strength: 1
+  KHR_materials_anisotropy: 1
+--- !u!114 &1345120459439714212
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3011a000a64498d8297909d5cc472a, type: 3}
+  m_Name: SpriteRendererExport
+  m_EditorClassIdentifier: 
+  enabled: 1
 --- !u!114 &1669241656245982018
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -379,3 +418,4 @@ MonoBehaviour:
   KHR_materials_clearcoat: 1
   KHR_materials_emissive_strength: 1
   KHR_materials_sheen: 1
+  KHR_materials_anisotropy: 1
