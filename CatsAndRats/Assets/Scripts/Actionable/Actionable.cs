@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Actionable : MonoBehaviour, IAction
+public abstract class Actionable : MonoBehaviour, IAction
 {
     public virtual void Action()
     {

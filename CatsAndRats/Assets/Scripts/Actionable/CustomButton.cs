@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CustomButton : MonoBehaviour, IAction
+public class CustomButton : Actionable
 {
     public GameObject agent;
     public Actionable target;
     public const float MAX_DISTANCE = 1f;
     public KeyCode activationKey = KeyCode.K;
+    public bool needsClearance = false;
 
-    public void Action()
+    public override void Action()
     {
         target.Action();
     }
@@ -24,9 +25,12 @@ public class CustomButton : MonoBehaviour, IAction
         float distance = Vector3.Distance(transform.position, agent.transform.position);
         if (distance < MAX_DISTANCE)
         {
-            if (Input.GetKeyDown(activationKey) && HasClearance())
+            if (Input.GetKeyDown(activationKey))
             {
-                target.Action();
+                if (!needsClearance || (needsClearance && HasClearance()))
+                {
+                    target.Action();   
+                }
             }
         }
     }
