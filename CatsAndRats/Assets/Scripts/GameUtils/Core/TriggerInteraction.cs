@@ -91,18 +91,18 @@ namespace GameUtils.Core
         }
 
 
-        protected abstract void Initialize();
+        protected virtual void Initialize() {}
 
-        protected abstract void OnCatEnter();
-        protected abstract void OnMouseEnter();
+        protected virtual void OnCatEnter() {}
+        protected virtual void OnMouseEnter() {}
 
-        protected abstract void OnCatExit();
-        protected abstract void OnMouseExit();
+        protected virtual void OnCatExit() {}
+        protected virtual void OnMouseExit() {}
 
-        protected abstract void OnCatStaying();
-        protected abstract void OnMouseStaying();
+        protected virtual void OnCatStaying() {}
+        protected virtual void OnMouseStaying() {}
 
-        protected abstract void OnUpdate();
-        protected abstract void OnDeactivate();
+        protected virtual void OnUpdate() {}
+        protected virtual void OnDeactivate() {}
     }
 }
