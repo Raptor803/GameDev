@@ -1,19 +1,20 @@
 using UnityEngine;
+using GameUtils.Core;
 
-
-namespace MyGame.Mechanisms
+namespace MyGame.Damage
 {
-    public class Barile : GameUtils.Core.PriorityTriggerOntag
+    public class DamageOnTag : PriorityTriggerOntag
     {
+        [SerializeField] float damageAmount;
         public override void Trigger()
         {
-            Destroy(gameObject);
+            GameObject.FindWithTag("cat").GetComponent<GameUtils.Core.DamageHandler>().TakeDamage(damageAmount);
         }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-
+            TagToInteractWith.Add("cat");
         }
 
         // Update is called once per frame
@@ -23,4 +24,5 @@ namespace MyGame.Mechanisms
         }
     }
 }
+
 

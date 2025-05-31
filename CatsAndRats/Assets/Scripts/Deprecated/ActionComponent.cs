@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-namespace GameUtils.Core
+namespace Deprecated
 {
     /*
     * Abstract class for all action components.

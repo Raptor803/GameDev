@@ -18,7 +18,7 @@ namespace MyGame.Controllers
         new int[]{-135,  -90, -45},
         new int[]{180,  0,  0},
         new int[]{135,  90, 45}
-    };
+        };
 
         private enum X_DIR { LEFT, STILL, RIGHT };
         private enum Z_DIR { IN, STILL, OUT };
