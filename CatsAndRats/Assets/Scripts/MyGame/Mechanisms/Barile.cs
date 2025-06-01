@@ -5,7 +5,7 @@ namespace MyGame.Mechanisms
 {
     public class Barile : GameUtils.Core.PriorityTriggerOntag
     {
-        public override void Trigger()
+        public override void Trigger(string tag)
         {
             Destroy(gameObject);
         }

@@ -15,7 +15,7 @@ namespace MyGame.Mechanisms
         public GameObject gomitoli;
         [SerializeField] protected float ShootDelay;
         private float _timer = 0f;
-        public override void Trigger()
+        public override void Trigger(string tag)
         {
             Destroy(gameObject);
         }

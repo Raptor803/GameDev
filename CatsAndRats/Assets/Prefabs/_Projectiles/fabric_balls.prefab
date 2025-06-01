@@ -232,4 +232,4 @@ MonoBehaviour:
   TagToInteractWith:
   - cat
   - mouse
-  damageAmount: 40
+  damageAmount: 15

@@ -21,7 +21,7 @@ namespace GameUtils.Core
             {
                 if (other.CompareTag(tag))
                 {
-                    Trigger();
+                    Trigger(tag);
                 }
             }
         }

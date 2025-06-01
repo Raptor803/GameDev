@@ -2,6 +2,6 @@
 {
     public interface ITrigger
     {
-        void Trigger();
+        void Trigger(string tag);
     }
 }

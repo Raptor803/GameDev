@@ -12,7 +12,7 @@ namespace GameUtils.Core
     public abstract class TriggerOnTag : MonoBehaviour, ITrigger
     {
         [SerializeField] public List<string> TagToInteractWith;
-        public abstract void Trigger();
+        public abstract void Trigger(string tag);
 
     }
 }

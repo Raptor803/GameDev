@@ -15,17 +15,21 @@ public class DynamicCameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameObject.FindWithTag("mouse").GetComponent<MyGame.Controllers.MouseCtrl>().IsOnTop())
+        if (MouseCamera != null && CatCamera != null && FullCamera != null)
         {
-            FullCamera.gameObject.SetActive(false);
-            MouseCamera.gameObject.SetActive(true);
-            CatCamera.gameObject.SetActive(true);
+            if (!GameObject.FindWithTag("mouse").GetComponent<MyGame.Controllers.MouseCtrl>().IsOnTop())
+            {
+                FullCamera.gameObject.SetActive(false);
+                MouseCamera.gameObject.SetActive(true);
+                CatCamera.gameObject.SetActive(true);
+            }
+            else
+            {
+                FullCamera.gameObject.SetActive(true);
+                MouseCamera.gameObject.SetActive(false);
+                CatCamera.gameObject.SetActive(false);
+            }
         }
-        else
-        {
-            FullCamera.gameObject.SetActive(true);
-            MouseCamera.gameObject.SetActive(false);
-            CatCamera.gameObject.SetActive(false);
-        }
+        
     }
 }

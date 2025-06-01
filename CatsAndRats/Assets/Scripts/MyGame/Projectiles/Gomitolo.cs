@@ -9,7 +9,7 @@ namespace MyGame.Projectiles
         public float velocita = 10f;
         public int maxRimbalzi = 10;
         private int conteggioRimbalzi = 0;
-        public override void Trigger()
+        public override void Trigger(string tag)
         {
             Debug.Log("Collide chiamato da: " + gameObject.name);
             Destroy(gameObject);
