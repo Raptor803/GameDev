@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-namespace MyGame.Mechanisms
+namespace MyGame.EnvObj
 {
     public class Barile : GameUtils.Core.PriorityTriggerOntag
     {
