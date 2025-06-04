@@ -1,54 +1,100 @@
+using System.Collections;
+using GameUtils.Core;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Animator cloudAnimator;
+    [SerializeField] public Animator cloudAnimator;
+    [SerializeField] public Animator textAnimator;
+    [SerializeField] public Animator lifeUIAnimator;  
+    [SerializeField] public GameObject mouse, cat;
     private float startTime;
-    private enum STATUS
+    private enum Status
     {
         IDLE,
         PLAYING,
-        GAMEOVER
+        GAMEOVER,
+        REPLAY
     }
-    private STATUS status;
+    private Status status;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        status = STATUS.IDLE;
+        status = Status.IDLE;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown)
+        switch (status)
         {
-            switch (status)
-            {
-                case STATUS.IDLE:
-                case STATUS.GAMEOVER:
-                    StartGame();
-                    status = STATUS.PLAYING;
-                    break;
-                case STATUS.PLAYING:
-                    //GameOver();
-                    status = STATUS.GAMEOVER;
-                    break;
-            }
+            case Status.IDLE:
+                HandleIdle();
+                break;
+            case Status.PLAYING:
+                HandlePlaying();
+                break;
+            case Status.REPLAY:
+                HandleReplay();
+                break;
+            case Status.GAMEOVER:
+                HandleGameOver();
+                break;
         }
     }
 
-    void GameOver()
+    void HandleIdle()
     {
-        float finishTime = Time.time;
-        print(finishTime - startTime + " seconds");
-        cloudAnimator.SetTrigger("MoveIn");
+        if (Input.anyKeyDown)
+        {
+            status = Status.PLAYING;
+            startTime = Time.time;
+            cloudAnimator.SetTrigger("MoveAway");
+            textAnimator.SetTrigger("FadeOut");
+            lifeUIAnimator.SetTrigger("Enable");
+        }
     }
 
-    void StartGame()
+    void HandlePlaying()
     {
-        startTime = Time.time;
-        print("Starting");
-        cloudAnimator.SetTrigger("MoveAway");
+        if (cat.GetComponent<DamageHandler>().CurrentHealth == 0 ||
+            mouse.GetComponent<DamageHandler>().CurrentHealth == 0 ||
+            Input.GetKeyDown(KeyCode.Escape)) // force game over
+        {
+            status = Status.GAMEOVER;
+            float finishTime = Time.time;
+            print(finishTime - startTime + " seconds");
+            cloudAnimator.SetTrigger("MoveIn");
+            textAnimator.SetTrigger("FadeIn");
+            lifeUIAnimator.SetTrigger("Disable");
+            StartCoroutine(reloadScene());
+        }
+
+    }
+
+    IEnumerator reloadScene()
+    {
+        yield return new WaitForSeconds(1);
+        UnityEngine.SceneManagement.Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+
+    void HandleGameOver()
+    {
+        if (Input.anyKeyDown)
+        {
+            status = Status.PLAYING;
+            cloudAnimator.SetTrigger("MoveAway");
+            textAnimator.SetTrigger("FadeOut");
+            lifeUIAnimator.SetTrigger("Enable");
+        }
+    }
+
+    void HandleReplay()
+    {
+        HandlePlaying();
     }
 }   
