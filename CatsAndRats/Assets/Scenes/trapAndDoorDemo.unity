@@ -1674,6 +1674,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6197631902310461711, guid: 153ff957ff01a284193d441b475cec74, type: 3}
+      propertyPath: m_Size.x
+      value: 0.14900243
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197631902310461711, guid: 153ff957ff01a284193d441b475cec74, type: 3}
+      propertyPath: m_Center.x
+      value: -0.0042691827
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493708378399568579, guid: 153ff957ff01a284193d441b475cec74, type: 3}
+      propertyPath: TagToInteractWith.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493708378399568579, guid: 153ff957ff01a284193d441b475cec74, type: 3}
+      propertyPath: 'TagToInteractWith.Array.data[0]'
+      value: cat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780819544694812787, guid: 153ff957ff01a284193d441b475cec74, type: 3}
+      propertyPath: healAmount
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2028,6 +2048,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2903057169050518849, guid: b6fffb5783beb824baf3dd84e36a0c53, type: 3}
+      propertyPath: m_Size.y
+      value: 0.39951882
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903057169050518849, guid: b6fffb5783beb824baf3dd84e36a0c53, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903057169050518849, guid: b6fffb5783beb824baf3dd84e36a0c53, type: 3}
+      propertyPath: m_Center.y
+      value: -0.10592146
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358227137036714329, guid: b6fffb5783beb824baf3dd84e36a0c53, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358227137036714329, guid: b6fffb5783beb824baf3dd84e36a0c53, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5789542344240879893, guid: b6fffb5783beb824baf3dd84e36a0c53, type: 3}
       propertyPath: m_Name
       value: spike

@@ -27,7 +27,7 @@ namespace MyGame.Traps
             GetMouse().GetComponent<MyGame.Controllers.MouseCtrl>().ActivateInput();
             // eat the cheese and heal the mouse when deactivated
             Destroy(cheese);
-            GetMouse().GetComponent<DamageHandler>().TakeDamage(-20);
+            GetMouse().GetComponent<DamageHandler>().Heal(20);
             
         }
 

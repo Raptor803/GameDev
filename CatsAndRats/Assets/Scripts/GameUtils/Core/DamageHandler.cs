@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,7 +28,24 @@ namespace GameUtils.Core
 
         public void TakeDamage(float damage)
         {
-            CurrentHealth -= damage;
+            if (damage > 0)
+            {
+                if (CurrentHealth >= damage)
+                {
+                    CurrentHealth -= damage;
+                }
+            }
+        }
+
+        public void Heal(float healValue)
+        {
+            if (healValue <= 0) return;
+
+            if(healValue + CurrentHealth < MaxHealth)
+            {
+                CurrentHealth += healValue;
+            }
+            else CurrentHealth = MaxHealth;
         }
 
         private void UpdateHealthUI()

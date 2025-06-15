@@ -74,31 +74,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d30b644aec3a60d468f2dae262625022, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7780819544694812787}
+      addedObject: {fileID: 6197631902310461711}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d30b644aec3a60d468f2dae262625022, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6197631902310461711}
+      addedObject: {fileID: 7493708378399568579}
   m_SourcePrefab: {fileID: 100100000, guid: d30b644aec3a60d468f2dae262625022, type: 3}
 --- !u!1 &3964634776795207252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d30b644aec3a60d468f2dae262625022, type: 3}
   m_PrefabInstance: {fileID: 4306672160103262981}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7780819544694812787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3964634776795207252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 658662e83d76fd84b9df979022403cd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TagToInteractWith:
-  - cat
-  damageAmount: -40
 --- !u!65 &6197631902310461711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -118,5 +103,19 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.07386342, z: 1}
-  m_Center: {x: 0, y: 0.037691668, z: 0}
+  m_Size: {x: 0.16285133, y: 0.07386342, z: 1.1340629}
+  m_Center: {x: -0.010427117, y: 0.037691668, z: 0.06703149}
+--- !u!114 &7493708378399568579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964634776795207252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db7c9188b9b52d448a5b52d54964bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TagToInteractWith: []
+  healAmount: 20
