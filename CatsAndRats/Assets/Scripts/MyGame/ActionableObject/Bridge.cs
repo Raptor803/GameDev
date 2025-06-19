@@ -4,7 +4,7 @@ using GameUtils.Core;
 
 namespace MyGame.ActionableObject
 {
-    public class Ponte : Actionable
+    public class Bridge : Actionable
     {
         [SerializeField] GameObject rotationCenter;
         [SerializeField] Vector3 FinalState;

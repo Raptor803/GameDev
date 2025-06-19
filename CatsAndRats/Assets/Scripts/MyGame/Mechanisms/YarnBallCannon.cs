@@ -9,7 +9,7 @@ namespace MyGame.Mechanisms
 {
     
     [AddComponentMenu(menuName: "stuffs/SparaGomitoli")]
-    public class SparaGomitoli : GameUtils.Core.PriorityTriggerOntag
+    public class YarnBallCannon : GameUtils.Core.TriggerOnTagEnter
     {
         [SerializeField]
         public GameObject gomitoli;

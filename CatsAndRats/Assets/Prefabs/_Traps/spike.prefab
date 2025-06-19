@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 76c49eab6dfdee54295befc16183276e, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 76c49eab6dfdee54295befc16183276e, type: 3}
       propertyPath: m_Layer
@@ -119,8 +119,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.26735783, y: 0.526719, z: 0.2695638}
-  m_Center: {x: -0.61454463, y: -0.042321384, z: -0.000038534403}
+  m_Size: {x: 0.26735783, y: 0.31617028, z: 0.2695638}
+  m_Center: {x: -0.61454463, y: -0.14759573, z: -0.000038534403}
 --- !u!114 &6507825477589200769
 MonoBehaviour:
   m_ObjectHideFlags: 0

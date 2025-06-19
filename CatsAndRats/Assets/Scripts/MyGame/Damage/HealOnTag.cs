@@ -3,7 +3,7 @@ using GameUtils.Core;
 
 namespace MyGame.Damage
 {
-    public class HealOnTag : PriorityTriggerOntag
+    public class HealOnTag : TriggerOnTagEnter
     {
         [SerializeField] float healAmount;
         public override void Trigger(string tag)

@@ -3,7 +3,7 @@
 
 namespace MyGame.Projectiles
 {
-    public class Gomitolo : GameUtils.Core.PriorityTriggerOntag
+    public class Gomitolo : GameUtils.Core.TriggerOnTagEnter
     {
         private Rigidbody rb;
         public float velocita = 10f;

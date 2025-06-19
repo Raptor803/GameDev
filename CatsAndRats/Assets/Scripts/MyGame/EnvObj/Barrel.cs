@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MyGame.EnvObj
 {
-    public class Barile : GameUtils.Core.PriorityTriggerOntag
+    public class Barrel : GameUtils.Core.TriggerOnTagEnter
     {
         public override void Trigger(string tag)
         {
