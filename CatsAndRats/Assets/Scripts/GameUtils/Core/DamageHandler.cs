@@ -1,3 +1,5 @@
+using System;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +16,11 @@ namespace GameUtils.Core
         [SerializeField] public float MaxHealth = 100f;
         [SerializeField] public float CurrentHealth = 100f;
         [SerializeField] public Canvas HealthUI;
+        [SerializeField] private AudioClip HealingSound;
+        [SerializeField] protected AudioClip DamageSound;
+        [SerializeField] private AudioClip DieSound;
+
+        private bool isDead = false;
 
         public void Start()
         {
@@ -34,7 +41,9 @@ namespace GameUtils.Core
                 {
                     CurrentHealth -= damage;
                 }
+                else CurrentHealth = 0;
             }
+            gameObject.GetComponent<AudioSource>().PlayOneShot(DamageSound);
         }
 
         public void Heal(float healValue)
@@ -46,6 +55,8 @@ namespace GameUtils.Core
                 CurrentHealth += healValue;
             }
             else CurrentHealth = MaxHealth;
+
+            gameObject.GetComponent<AudioSource>().PlayOneShot(HealingSound);
         }
 
         private void UpdateHealthUI()
@@ -62,10 +73,18 @@ namespace GameUtils.Core
         }
         private void checkDeath()
         {
-            if (CurrentHealth <= 0)
+            if (CurrentHealth <= 0 && !isDead)
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                isDead = true;
+                Die();
+                return;
             }
+        }
+
+        private void Die()
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(DieSound);
         }
 
         internal void InstantDie()

@@ -9,6 +9,7 @@ TagManager:
   - cannon
   - ProjectileCheese
   - ProjectileApple
+  - gomitolo
   layers:
   - Default
   - TransparentFX

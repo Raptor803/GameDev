@@ -150,6 +150,7 @@ MonoBehaviour:
   TagToInteractWith:
   - ProjectileApple
   - ProjectileCheese
+  - gomitolo
 --- !u!65 &4780485139047498745
 BoxCollider:
   m_ObjectHideFlags: 0
