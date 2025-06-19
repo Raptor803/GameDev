@@ -11,10 +11,14 @@ namespace MyGame.ActionableObject
         private bool isMoving;
         private float moveDuration = 2f;
 
+        private Vector3 _restartPosition;
+
+        private Coroutine _coroutineNowUsed;
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-
+            _restartPosition = transform.position;
         }
 
         // Update is called once per frame
@@ -26,16 +30,16 @@ namespace MyGame.ActionableObject
         {
             if (!isMoving)
             {
-                StartCoroutine(MoveToZOffset());
+                _coroutineNowUsed = StartCoroutine(MoveToPosition(new Vector3(_restartPosition.x,_restartPosition.y,moveZOffset)));
             }
         }
 
-        private IEnumerator MoveToZOffset()
+        private IEnumerator MoveToPosition(Vector3 targetPosition)
         {
             isMoving = true;
 
             Vector3 startPos = transform.position;
-            Vector3 endPos = new Vector3(startPos.x, startPos.y, moveZOffset);
+            Vector3 endPos = targetPosition;
 
             float elapsed = 0f;
 
@@ -47,9 +51,31 @@ namespace MyGame.ActionableObject
                 elapsed += Time.deltaTime;
                 yield return null;
             }
+
             transform.position = endPos;
             isMoving = false;
         }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (isMoving) ResetPosition();
+        }
+        private void OnTriggerExit(Collider other)
+        {
+            if(isMoving) // restart it if is exited the trigger
+                _coroutineNowUsed = StartCoroutine(MoveToPosition(new Vector3(_restartPosition.x, _restartPosition.y, moveZOffset)));
+        }
+
+        private void ResetPosition()
+        {
+            if (isMoving && _coroutineNowUsed != null)
+            {
+                // Pause the routine
+                StopCoroutine(_coroutineNowUsed);
+            }
+   
+        }
+
     }
 
 }

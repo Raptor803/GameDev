@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1764939770989514721}
   - component: {fileID: 3769429119304438944}
+  - component: {fileID: 4480811264689608373}
   m_Layer: 6
   m_Name: OakStairs
   m_TagString: Untagged
@@ -51,6 +52,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveZOffset: 0
+--- !u!65 &4480811264689608373
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6808479822838217194}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.1844053, y: 2.2155762, z: 10.122012}
+  m_Center: {x: 5.797363, y: 0.60778797, z: 0.42597055}
 --- !u!1001 &699640801177964425
 PrefabInstance:
   m_ObjectHideFlags: 0
