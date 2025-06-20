@@ -113,15 +113,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 72426bda0c71aa746b4eae9abfb4af3a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 72426bda0c71aa746b4eae9abfb4af3a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 72426bda0c71aa746b4eae9abfb4af3a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.25
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 72426bda0c71aa746b4eae9abfb4af3a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -209,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 455b23638ecb4d540b64c5fda445ba72, type: 2}
     - target: {fileID: 919132149155446097, guid: 72426bda0c71aa746b4eae9abfb4af3a, type: 3}
       propertyPath: m_Name
-      value: fabric_balls
+      value: YarnBall
       objectReference: {fileID: 0}
     - target: {fileID: 1079896156945526154, guid: 72426bda0c71aa746b4eae9abfb4af3a, type: 3}
       propertyPath: m_TagString
