@@ -10,6 +10,7 @@ TagManager:
   - ProjectileCheese
   - ProjectileApple
   - gomitolo
+  - DESTROYER
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Water
   - UI
   - Floor
-  - 
-  - 
+  - ignorePRJ
+  - PRJ
   - 
   - 
   - 

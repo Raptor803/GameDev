@@ -9,8 +9,9 @@ namespace MyGame.EnvObj
 
        protected override void OnCatStaying()
        {
+            Debug.Log("staying");
             _timer += Time.deltaTime;
-            if (_timer > _maxTime ) Destroy( gameObject );
+            if (_timer > _maxTime ) Destroy(transform.parent.gameObject );
        }
         protected override void OnCatExit()
         {

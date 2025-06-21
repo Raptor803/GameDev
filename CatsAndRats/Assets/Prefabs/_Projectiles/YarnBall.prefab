@@ -212,6 +212,10 @@ PrefabInstance:
       value: YarnBall
       objectReference: {fileID: 0}
     - target: {fileID: 1079896156945526154, guid: 72426bda0c71aa746b4eae9abfb4af3a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079896156945526154, guid: 72426bda0c71aa746b4eae9abfb4af3a, type: 3}
       propertyPath: m_TagString
       value: gomitolo
       objectReference: {fileID: 0}
@@ -242,6 +246,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1079896156945526154, guid: 72426bda0c71aa746b4eae9abfb4af3a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4268868562581892952}
+    - targetCorrespondingSourceObject: {fileID: 1079896156945526154, guid: 72426bda0c71aa746b4eae9abfb4af3a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 604678358805598517}
   m_SourcePrefab: {fileID: 100100000, guid: 72426bda0c71aa746b4eae9abfb4af3a, type: 3}
 --- !u!1 &2812010034580452033 stripped
 GameObject:
@@ -265,7 +272,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 10.029994, y: 9.995734, z: 9.994394}
   m_Center: {x: -11.506615, y: 9.910948, z: 8.420781}
@@ -288,8 +295,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7.012185, y: 11.733801, z: 156.61415}
-  m_Center: {x: -11.883842, y: 10.176451, z: -7.421804}
+  m_Size: {x: 15.732071, y: 13.865325, z: 156.61415}
+  m_Center: {x: -11.593185, y: 11.242213, z: -7.421804}
 --- !u!54 &5849345805483860281
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -453,6 +460,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &604678358805598517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2812010034580452033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99bb712529c508b4a94b982d85cb8cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TagToInteractWith:
+  - DESTROYER
 --- !u!4 &9003579043078107138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3095687628815716535, guid: 72426bda0c71aa746b4eae9abfb4af3a, type: 3}
