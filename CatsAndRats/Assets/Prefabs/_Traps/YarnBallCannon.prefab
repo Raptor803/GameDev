@@ -1,5 +1,92 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3148010490593339935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1648024229363621837}
+  - component: {fileID: 9033831840309464626}
+  - component: {fileID: 2435009873810345200}
+  - component: {fileID: 2284614594238148608}
+  m_Layer: 7
+  m_Name: FIRE_AREA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1648024229363621837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3148010490593339935}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7878377394244602607}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &9033831840309464626
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3148010490593339935}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 49.483284, y: 7.4420447, z: 40.62701}
+  m_Center: {x: 1.4549776, y: 3.2210221, z: 18.738714}
+--- !u!114 &2435009873810345200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3148010490593339935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5668e7f46f31c8e41a0dedab1e8f457b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TagToInteractWith:
+  - cat
+  - mouse
+  _fireObject: {fileID: 1987078316657076364}
+--- !u!114 &2284614594238148608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3148010490593339935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070cb849f8a773849a52c4dd665206e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TagToInteractWith:
+  - cat
+  - mouse
+  _fireObject: {fileID: 1987078316657076364}
 --- !u!1001 &7700916781008268548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 86249e473bde2bb44a4539ac58c2a4a1, type: 3}
       propertyPath: m_Name
-      value: SparaGomitoli
+      value: YarnBallCannon
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 86249e473bde2bb44a4539ac58c2a4a1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -86,7 +173,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 86249e473bde2bb44a4539ac58c2a4a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1648024229363621837}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 86249e473bde2bb44a4539ac58c2a4a1, type: 3}
       insertIndex: -1
@@ -162,3 +252,8 @@ MonoBehaviour:
   - ProjectileCheese
   gomitoli: {fileID: 2682916394378551834, guid: 4261fe1664caacb4186c9b82bab36240, type: 3}
   ShootDelay: 1
+--- !u!4 &7878377394244602607 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 86249e473bde2bb44a4539ac58c2a4a1, type: 3}
+  m_PrefabInstance: {fileID: 7700916781008268548}
+  m_PrefabAsset: {fileID: 0}

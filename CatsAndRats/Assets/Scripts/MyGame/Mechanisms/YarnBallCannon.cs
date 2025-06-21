@@ -1,5 +1,6 @@
 using GameUtils.Core;
 using System;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,11 +10,14 @@ namespace MyGame.Mechanisms
 {
     
     [AddComponentMenu(menuName: "stuffs/SparaGomitoli")]
-    public class YarnBallCannon : GameUtils.Core.TriggerOnTagEnter
+    public class YarnBallCannon : GameUtils.Core.TriggerOnTagEnter, IEnable
     {
         [SerializeField]
         public GameObject gomitoli;
         [SerializeField] protected float ShootDelay;
+
+        private bool _state = false;
+
         private float _timer = 0f;
         public override void Trigger(string tag)
         {
@@ -22,19 +26,36 @@ namespace MyGame.Mechanisms
 
         private void Update()
         {
-            _timer += Time.deltaTime;
-            if (_timer >= ShootDelay)
+            if (_state)
             {
-                Shoot();
-                _timer = 0f;
+                _timer += Time.deltaTime;
+                if (_timer >= ShootDelay)
+                {
+                    Shoot();
+                    _timer = 0f;
+                }
             }
         }
 
         private void Shoot()
         {
+            
             GameObject prj = Instantiate(gomitoli) as GameObject;
             prj.transform.position = transform.TransformPoint(Vector3.forward * 2.5f + Vector3.up * 3f);
             prj.transform.rotation = transform.rotation;
+
+        }
+
+        public void Enable()
+        {
+            Debug.Log("cannone abilitato");
+            _state = true;
+        }
+
+        public void Disable()
+        {
+            Debug.Log("cannone disabilitato");
+            _state = false;
         }
     }
 }

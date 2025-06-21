@@ -1,15 +1,12 @@
-using NUnit.Framework;
-using System.Collections.Generic;
 using UnityEngine;
 
 
+namespace GameUtils.Core {
 
-namespace GameUtils.Core
-{
-    public abstract class TriggerOnTagEnter : TriggerOnTag
+    public abstract class TriggerOnTagExit : TriggerOnTagEnter
     {
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerExit(Collider other)
         {
             foreach (string tag in TagToInteractWith)
             {
@@ -20,8 +17,9 @@ namespace GameUtils.Core
                 }
             }
         }
-
     }
+
+
 
 
 }

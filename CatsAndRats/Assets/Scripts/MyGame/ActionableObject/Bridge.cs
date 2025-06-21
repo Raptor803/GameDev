@@ -10,7 +10,10 @@ namespace MyGame.ActionableObject
         [SerializeField] Vector3 FinalState;
         [SerializeField] float animationDuration = 2f;
 
+        [SerializeField] private GameObject DESTROY_PRJ;
+
         private bool isAnimating = false;
+        private bool _finish = false;
 
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,7 +25,12 @@ namespace MyGame.ActionableObject
         // Update is called once per frame
         void Update()
         {
-
+            if (_finish)
+            {
+//                Collider coll = transform.Find("DESTROY_PRJ")?.GetComponent<Collider>();
+//               if (coll != null) coll.enabled = false;
+                Destroy(DESTROY_PRJ);  
+            }
         }
 
         public override void Action()
@@ -32,6 +40,7 @@ namespace MyGame.ActionableObject
                 Debug.Log("Inizio abbassamento ponte");
                 StartCoroutine(AnimateBridge());
             }
+            
         }
 
         private IEnumerator AnimateBridge()
@@ -53,6 +62,7 @@ namespace MyGame.ActionableObject
             rotationCenter.transform.localRotation = targetRotation;
             Debug.Log("Ponte abbassato");
             isAnimating = false;
+            _finish = true;
         }
     }
 }
