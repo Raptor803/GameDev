@@ -1,6 +1,5 @@
 using System.Collections;
 using GameUtils.Core;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,10 +7,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] public Animator cloudAnimator;
     [SerializeField] public Animator textAnimator;
-    [SerializeField] public Animator lifeUIAnimator;  
+    [SerializeField] public Animator lifeUIAnimator;
     [SerializeField] public GameObject mouse, cat;
     private float startTime;
-    private enum Status
+    public enum Status
     {
         IDLE,
         PLAYING,
@@ -64,15 +63,20 @@ public class GameManager : MonoBehaviour
             mouse.GetComponent<DamageHandler>().CurrentHealth == 0 ||
             Input.GetKeyDown(KeyCode.Escape)) // force game over
         {
-            status = Status.GAMEOVER;
-            float finishTime = Time.time;
-            print(finishTime - startTime + " seconds");
-            cloudAnimator.SetTrigger("MoveIn");
-            textAnimator.SetTrigger("FadeIn");
-            lifeUIAnimator.SetTrigger("Disable");
-            StartCoroutine(reloadScene());
+            TriggerGameOver();
         }
 
+    }
+
+    public void TriggerGameOver()
+    {
+        status = Status.GAMEOVER;
+        float finishTime = Time.time;
+        print(finishTime - startTime + " seconds");
+        cloudAnimator.SetTrigger("MoveIn");
+        textAnimator.SetTrigger("FadeIn");
+        lifeUIAnimator.SetTrigger("Disable");
+        StartCoroutine(reloadScene());
     }
 
     IEnumerator reloadScene()
