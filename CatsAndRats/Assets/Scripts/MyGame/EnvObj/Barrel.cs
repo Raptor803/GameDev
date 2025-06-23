@@ -7,7 +7,7 @@ namespace MyGame.EnvObj
     {
         public override void Trigger(string tag)
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -24,7 +24,9 @@ namespace MyGame.Traps
 
         protected override void OnDeactivate()
         {
-            GetMouse().GetComponent<MyGame.Controllers.MouseCtrl>().ActivateInput();
+            if(!GetMouse().GetComponent<MyGame.Controllers.MouseCtrl>().IsOnTop())
+                GetMouse().GetComponent<MyGame.Controllers.MouseCtrl>().ActivateInput();
+            
             // eat the cheese and heal the mouse when deactivated
             Destroy(cheese);
             GetMouse().GetComponent<DamageHandler>().Heal(20);

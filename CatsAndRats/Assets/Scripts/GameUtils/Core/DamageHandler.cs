@@ -19,6 +19,9 @@ namespace GameUtils.Core
         [SerializeField] private AudioClip HealingSound;
         [SerializeField] protected AudioClip DamageSound;
         [SerializeField] private AudioClip DieSound;
+        private float damageCooldown = 1.0f; // secondi di invulnerabilità
+        private float lastDamageTime = -Mathf.Infinity;
+
 
         private bool isDead = false;
 
@@ -35,6 +38,12 @@ namespace GameUtils.Core
 
         public void TakeDamage(float damage)
         {
+            // cooldown, ignore damage
+            if (Time.time - lastDamageTime < damageCooldown)
+                return;
+
+            lastDamageTime = Time.time; // last damage 
+
             if (damage > 0)
             {
                 if (CurrentHealth >= damage)

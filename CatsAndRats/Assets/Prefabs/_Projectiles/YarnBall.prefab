@@ -339,7 +339,7 @@ MonoBehaviour:
   TagToInteractWith:
   - cat
   - mouse
-  damageAmount: 5
+  damageAmount: 12
 --- !u!114 &3950221410502830717
 MonoBehaviour:
   m_ObjectHideFlags: 0

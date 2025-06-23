@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6972169518966419494}
   - component: {fileID: 2955587041227543762}
   - component: {fileID: 6905801578523755438}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 1119701413592476975}
   - component: {fileID: 904510635550024942}
   - component: {fileID: 3969937794968127869}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CustomButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,6 +180,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   target: {fileID: 0}
   activationKey: 107
+  needsClearance: 0
 --- !u!114 &3969937794968127869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +211,7 @@ GameObject:
   - component: {fileID: 483857312937611304}
   - component: {fileID: 6032584465987194274}
   - component: {fileID: 2463536978009618410}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

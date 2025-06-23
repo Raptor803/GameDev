@@ -56,9 +56,17 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 39dc4b9dd43ca89449f196d70448efb3, type: 2}
+    - target: {fileID: -3857508713183654104, guid: d30b644aec3a60d468f2dae262625022, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d30b644aec3a60d468f2dae262625022, type: 3}
       propertyPath: m_Name
       value: bowl_cat
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d30b644aec3a60d468f2dae262625022, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2727289216453109322, guid: d30b644aec3a60d468f2dae262625022, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,6 +75,10 @@ PrefabInstance:
     - target: {fileID: 2727289216453109322, guid: d30b644aec3a60d468f2dae262625022, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738837372458571421, guid: d30b644aec3a60d468f2dae262625022, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -117,5 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db7c9188b9b52d448a5b52d54964bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TagToInteractWith: []
+  TagToInteractWith:
+  - cat
   healAmount: 20

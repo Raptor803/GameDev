@@ -52,8 +52,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.3297408, z: 1}
-  m_Center: {x: 0, y: 0.33512962, z: 0}
+  m_Size: {x: 0.24541086, y: 0.32974076, z: 0.28669512}
+  m_Center: {x: 0.03096363, y: 0.33512962, z: 0.012614667}
 --- !u!114 &5001937586565927145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   TagToInteractWith:
   - cat
   - mouse
-  damageAmount: 12
+  damageAmount: 2
 --- !u!4 &6562666850482586543 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 76c49eab6dfdee54295befc16183276e, type: 3}
