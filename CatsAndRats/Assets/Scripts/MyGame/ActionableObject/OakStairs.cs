@@ -14,18 +14,13 @@ namespace MyGame.ActionableObject
         private Vector3 _restartPosition;
 
         private Coroutine _coroutineNowUsed;
+        [SerializeField] AudioClip _clip;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _restartPosition = transform.position;
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
         public override void Action()
         {
             if (!isMoving)
@@ -37,6 +32,8 @@ namespace MyGame.ActionableObject
         private IEnumerator MoveToPosition(Vector3 targetPosition)
         {
             isMoving = true;
+
+            gameObject.GetComponent<AudioSource>().PlayOneShot(_clip);
 
             Vector3 startPos = transform.position;
             Vector3 endPos = targetPosition;
