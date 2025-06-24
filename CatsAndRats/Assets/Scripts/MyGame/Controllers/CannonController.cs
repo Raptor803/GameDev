@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace MyGame.Controllers
 {
+    [AddComponentMenu(menuName: "MyScripts/Controllers/CannonController")]
     public class CannonController : MonoBehaviour
     {
         private GameObject mouse;

@@ -9,7 +9,7 @@ using UnityEngine;
 namespace MyGame.Mechanisms
 {
     
-    [AddComponentMenu(menuName: "stuffs/SparaGomitoli")]
+    [AddComponentMenu(menuName: "MyScripts/SparaGomitoli")]
     public class YarnBallCannon : GameUtils.Core.TriggerOnTagEnter, IEnable
     {
         [SerializeField]

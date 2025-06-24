@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace MyGame.Controllers
 {
+    [AddComponentMenu(menuName: "MyScripts/Controllers/MouseCtrl")]
     [RequireComponent(typeof(MovementController))]
     [RequireComponent(typeof(GravityComponent))]
     public class MouseCtrl : MonoBehaviour

@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace MyGame.Controllers
 {
+    [AddComponentMenu(menuName: "MyScripts/Controllers/JumpController")]
     [RequireComponent(typeof(GravityComponent))]
     [RequireComponent(typeof(CharacterController))]
     public class JumpController : MonoBehaviour

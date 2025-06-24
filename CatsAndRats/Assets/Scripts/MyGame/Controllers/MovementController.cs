@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace MyGame.Controllers
 {
+    [AddComponentMenu(menuName: "MyScripts/Controllers/MovementController")]
     [RequireComponent(typeof(CharacterController))]
-
     public class MovementController : MonoBehaviour
     {
         public float speed = 3f;

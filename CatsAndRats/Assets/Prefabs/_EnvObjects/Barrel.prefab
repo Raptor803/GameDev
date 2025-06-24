@@ -124,6 +124,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 130822bb50c9c214188b480aa572b8c4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3957417db296d4b6084ebe80dfaa78b4, type: 2}
     - target: {fileID: 919132149155446097, guid: 130822bb50c9c214188b480aa572b8c4, type: 3}
       propertyPath: m_Name
       value: barile

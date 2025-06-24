@@ -1,9 +1,8 @@
 using UnityEngine;
 
-
-
 namespace MyGame
 {
+    [AddComponentMenu(menuName: "MyScripts/Controllers/GravityComponent")]
     [RequireComponent(typeof(CharacterController))]
     public class GravityComponent : MonoBehaviour
     {

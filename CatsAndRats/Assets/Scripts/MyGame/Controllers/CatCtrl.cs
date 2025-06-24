@@ -9,6 +9,7 @@ using UnityEngine;
 
 namespace MyGame.Controllers
 {
+    [AddComponentMenu(menuName: "MyScripts/Controllers/CatCtrl")]
     [RequireComponent(typeof(MovementController))]
     [RequireComponent(typeof(GravityComponent))]
     [RequireComponent(typeof(JumpController))]
