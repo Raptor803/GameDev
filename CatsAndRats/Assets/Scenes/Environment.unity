@@ -9471,7 +9471,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2296860446187536222, guid: 02bdc28676ca742409fa5878ab64625f, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296860446187536222, guid: 02bdc28676ca742409fa5878ab64625f, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296860446187536222, guid: 02bdc28676ca742409fa5878ab64625f, type: 3}
+      propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2760421657559697422, guid: 02bdc28676ca742409fa5878ab64625f, type: 3}
@@ -9482,9 +9490,29 @@ PrefabInstance:
       propertyPath: m_ScreenMatchMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2760421657559697422, guid: 02bdc28676ca742409fa5878ab64625f, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5627619827533491113, guid: 02bdc28676ca742409fa5878ab64625f, type: 3}
       propertyPath: m_Name
       value: LifeUI_Mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780302739101383461, guid: 02bdc28676ca742409fa5878ab64625f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780302739101383461, guid: 02bdc28676ca742409fa5878ab64625f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780302739101383461, guid: 02bdc28676ca742409fa5878ab64625f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780302739101383461, guid: 02bdc28676ca742409fa5878ab64625f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8357470642051595469, guid: 02bdc28676ca742409fa5878ab64625f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -34847,6 +34875,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: LifeUI_Cat
       objectReference: {fileID: 0}
+    - target: {fileID: 4330299658683951615, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330299658683951615, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330299658683951615, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330299658683951615, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541285740942898598, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4541285740942898598, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -34893,15 +34941,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7962283665576790566, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0
+      value: -6.61
       objectReference: {fileID: 0}
     - target: {fileID: 7962283665576790566, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0
+      value: -6.61
       objectReference: {fileID: 0}
     - target: {fileID: 7962283665576790566, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
+      value: -6.61
       objectReference: {fileID: 0}
     - target: {fileID: 7962283665576790566, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34950,6 +34998,10 @@ PrefabInstance:
     - target: {fileID: 7962283665576790566, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962283665576790566, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9090164791403805057, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
       propertyPath: m_AnchorMax.x
