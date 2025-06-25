@@ -2,6 +2,10 @@ using System.Collections;
 using UnityEngine;
 using GameUtils.Core;
 
+/*
+ * Bridge implementation script
+ * bridge is triggered by a button, in fact it implements Actionable
+ */
 namespace MyGame.ActionableObject
 {
     public class Bridge : Actionable
@@ -15,20 +19,11 @@ namespace MyGame.ActionableObject
         private bool isAnimating = false;
         private bool _finish = false;
 
-
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-
-        }
-
         // Update is called once per frame
         void Update()
         {
             if (_finish)
             {
-//                Collider coll = transform.Find("DESTROY_PRJ")?.GetComponent<Collider>();
-//               if (coll != null) coll.enabled = false;
                 Destroy(DESTROY_PRJ);  
             }
         }

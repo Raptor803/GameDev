@@ -215,6 +215,7 @@ MonoBehaviour:
   ENDING_SPEED: 5
   JUMP_DECREMENT: 0.08
   jumpKey: 32
+  jumpSound: {fileID: 8300000, guid: 3e82467ade7a1e742a79083a9104680a, type: 3}
 --- !u!114 &6587217733782714941
 MonoBehaviour:
   m_ObjectHideFlags: 0

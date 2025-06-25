@@ -19,16 +19,11 @@ namespace GameUtils.Core
         [SerializeField] private AudioClip HealingSound;
         [SerializeField] protected AudioClip DamageSound;
         [SerializeField] private AudioClip DieSound;
-        private float damageCooldown = 1.0f; // secondi di invulnerabilità
+        private float damageCooldown = 0.7f; // invulnerability time
         private float lastDamageTime = -Mathf.Infinity;
 
 
         private bool isDead = false;
-
-        public void Start()
-        {
-            // Start logic here
-        }
 
         public void Update()
         {
@@ -98,7 +93,7 @@ namespace GameUtils.Core
 
         internal void InstantDie()
         {
-            CurrentHealth = 0;
+            Die();
         }
     }
 }

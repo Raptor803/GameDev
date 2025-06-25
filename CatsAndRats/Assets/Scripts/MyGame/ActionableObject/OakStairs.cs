@@ -14,7 +14,7 @@ namespace MyGame.ActionableObject
         private Vector3 _restartPosition;
 
         private Coroutine _coroutineNowUsed;
-        [SerializeField] AudioClip _clip;
+        [SerializeField] AudioClip _clip; //sound used when the object is moving
 
         void Start()
         {

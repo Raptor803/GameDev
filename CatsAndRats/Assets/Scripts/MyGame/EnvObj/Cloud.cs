@@ -17,8 +17,6 @@ namespace MyGame.EnvObj
             _timer += Time.deltaTime;
 
             if (_timer > _maxTime) {
-                //gameObject.GetComponent<AudioSource>().PlayOneShot(DestroySound;
-                //Destroy(transform.parent.gameObject );
                 if(!isCoroutineRunning) StartCoroutine(DestroyAfterSound());
             }
 

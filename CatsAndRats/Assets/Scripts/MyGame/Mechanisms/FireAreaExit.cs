@@ -2,7 +2,7 @@ using GameUtils.Core;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-
+// when tags exit an area that trigger an object, for exemple a YarnBallCannon turns off
 namespace MyGame.Mechanisms
 {
     public class FireAreaExit : TriggerOnTagExit

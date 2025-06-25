@@ -11,7 +11,7 @@ namespace MyGame.Projectiles
         [SerializeField] private float jumpForce = 10f;
         [SerializeField] private float gravity = -20f;        // simulate gravity
         [SerializeField] private float forwardSpeed = 5f;
-        [SerializeField] private LayerMask floorLayer;        // Floor layer to interact with
+        [SerializeField] private LayerMask floorLayer;        // Floor layer to interact with (and "bounce")
 
         private int _currentJumps = 0;
         [SerializeField] private int MaxJumps = 100;
@@ -20,7 +20,6 @@ namespace MyGame.Projectiles
         [SerializeField] private AudioClip soundFire;
 
         private float verticalVelocity;
-        private bool isFalling = false;
 
         private void Start()
         {

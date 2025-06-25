@@ -8,7 +8,6 @@ namespace GameUtils.Core
 {
     public abstract class TriggerOnTagEnter : TriggerOnTag
     {
-
         private void OnTriggerEnter(Collider other)
         {
             foreach (string tag in TagToInteractWith)

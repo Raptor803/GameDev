@@ -33688,7 +33688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4541285740942898598, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
       propertyPath: m_PixelPerfect
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7962283665576790566, guid: 65c7d5ca70adf4bc0b8f49b913db2dba, type: 3}
       propertyPath: m_Pivot.x

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityGLTF.Interactivity.VisualScripting.Export;
 
 namespace MyGame.Controllers
 {
@@ -19,6 +20,8 @@ namespace MyGame.Controllers
         public float ENDING_SPEED = 5f; // speed at which the jump ends
         public float JUMP_DECREMENT = 0.08f; // decrement of the jump speed per frame
         public KeyCode jumpKey = KeyCode.Space; // key to trigger the jump
+
+        [SerializeField] protected AudioClip jumpSound;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -50,6 +53,7 @@ namespace MyGame.Controllers
 
         IEnumerator Jump()
         {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(jumpSound);
             for (float i = STARTING_SPEED; i > ENDING_SPEED; i -= JUMP_DECREMENT)
             {
                 deltaY = i;

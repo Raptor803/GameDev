@@ -18,7 +18,6 @@ namespace MyGame.Traps
         protected override void OnCatEnter()
         {
             deactivate();
-            // TODO: change graphic as a destroyed mouseTrap
         }
 
 
@@ -36,7 +35,7 @@ namespace MyGame.Traps
         protected override void OnMouseEnter()
         {
             DamageMouse();
-            // il topo rimane intrappolato
+            // Mouse stays trapped
             GetMouse().GetComponent<MyGame.Controllers.MouseCtrl>().DeactivateInput();
         }
 

@@ -5,7 +5,7 @@ using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
+// Cannon that spawn YarnBall projectiles each seconds
 namespace MyGame.Mechanisms
 {
     

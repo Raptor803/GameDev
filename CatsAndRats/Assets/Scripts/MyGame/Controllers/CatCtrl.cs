@@ -46,6 +46,7 @@ namespace MyGame.Controllers
 
             if (jumpController.IsJumping() || movementController.IsMoving())
             {
+                
                 animator.SetFloat("Vert", 1f);
             }
             else

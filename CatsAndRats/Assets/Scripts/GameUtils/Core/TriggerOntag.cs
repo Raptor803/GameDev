@@ -4,7 +4,6 @@ using UnityEngine;
 /* 
  * Connect the Itrigger interface with a list of tag
  * We can decide in the implemetation how it works.
- * 
  */
 
 namespace GameUtils.Core

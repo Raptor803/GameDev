@@ -6,13 +6,6 @@ public class DynamicCameraFollow : MonoBehaviour
     [SerializeField] GameObject CatCamera;
     [SerializeField] GameObject FullCamera;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (MouseCamera != null && CatCamera != null && FullCamera != null)

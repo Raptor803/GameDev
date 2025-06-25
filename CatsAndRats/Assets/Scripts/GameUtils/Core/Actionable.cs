@@ -3,23 +3,14 @@ using UnityEngine;
 
 namespace GameUtils.Core
 {
+    /*
+    * abstraction is used for objects that can be triggered by something like a button
+    */
     public abstract class Actionable : MonoBehaviour, IAction
     {
         public virtual void Action()
         {
             print(gameObject + ".Action()");
-        }
-
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 }

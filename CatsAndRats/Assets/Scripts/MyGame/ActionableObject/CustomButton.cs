@@ -18,12 +18,6 @@ namespace MyGame.ActionableObject
             target.Action();
         }
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-
-        }
-
         void Update()
         {
             float distance = Vector3.Distance(transform.position, agent.transform.position);
