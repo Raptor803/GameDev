@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 958814650000357196}
   - component: {fileID: 3142812833608149588}
   m_Layer: 6
-  m_Name: Ponte
+  m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

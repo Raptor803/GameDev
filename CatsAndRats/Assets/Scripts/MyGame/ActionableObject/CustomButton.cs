@@ -29,6 +29,7 @@ namespace MyGame.ActionableObject
             float distance = Vector3.Distance(transform.position, agent.transform.position);
             if (distance < MAX_DISTANCE)
             {
+                GetComponent<Outline>().enabled = true;
                 if (Input.GetKeyDown(activationKey))
                 {
                     if (!needsClearance || (needsClearance && HasClearance()))
@@ -36,6 +37,10 @@ namespace MyGame.ActionableObject
                         target.Action();
                     }
                 }
+            }
+            else
+            {
+                GetComponent<Outline>().enabled = false;
             }
         }
 
@@ -53,22 +58,6 @@ namespace MyGame.ActionableObject
                 }
             }
             return false; // Obstacle in the way
-        }
-
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.tag == agent.tag)
-            {
-                GetComponent<Outline>().enabled = true;
-            }
-        }
-
-        void OnTriggerExit(Collider other)
-        {
-            if (other.tag == agent.tag)
-            {
-                GetComponent<Outline>().enabled = false;
-            }
         }
 
     }
