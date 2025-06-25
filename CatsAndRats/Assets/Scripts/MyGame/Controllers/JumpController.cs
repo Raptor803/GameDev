@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityGLTF.Interactivity.VisualScripting.Export;
 
 namespace MyGame.Controllers
 {
