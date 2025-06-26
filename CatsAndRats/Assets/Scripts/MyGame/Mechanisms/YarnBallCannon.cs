@@ -1,5 +1,6 @@
 using GameUtils.Core;
 using System;
+using System.Collections;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using Unity.VisualScripting;
@@ -15,13 +16,14 @@ namespace MyGame.Mechanisms
         [SerializeField]
         public GameObject gomitoli;
         [SerializeField] protected float ShootDelay;
+        [SerializeField] private AudioClip _clip_destroy_cannon;
 
         private bool _state = false;
 
         private float _timer = 0f;
         public override void Trigger(string tag)
         {
-            Destroy(gameObject);
+            StartCoroutine(DestroyAfterSound());
         }
 
         private void Update()
@@ -56,6 +58,15 @@ namespace MyGame.Mechanisms
         {
             Debug.Log("cannone disabilitato");
             _state = false;
+        }
+
+        private IEnumerator DestroyAfterSound()
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.PlayOneShot(_clip_destroy_cannon);
+            yield return new WaitForSeconds(_clip_destroy_cannon.length);
+
+            Destroy(transform.parent.gameObject);
         }
     }
 }
