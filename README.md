@@ -4,11 +4,11 @@
 
 ### To-Do
 
-- [ ]  Realizzare ambiente (grafica)
-- [ ]  Creare ostacoli fissi e rispettivi controller
-- [ ]  Creare ostacoli mobili e controller
-- [ ]  Split Screen
-- [ ]  Personaggi e controller
+- [X]  Realizzare ambiente (grafica)
+- [X]  Creare ostacoli fissi e rispettivi controller
+- [X]  Creare ostacoli mobili e controller
+- [X]  Split Screen
+- [X]  Personaggi e controller
 
 # Ostacoli
 
