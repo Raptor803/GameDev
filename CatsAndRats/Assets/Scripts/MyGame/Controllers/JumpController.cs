@@ -1,3 +1,9 @@
+/**
+* JumpController.cs
+* 
+* This script handles jumps.
+*/
+
 using System.Collections;
 using UnityEngine;
 

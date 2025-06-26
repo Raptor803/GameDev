@@ -1,3 +1,9 @@
+/**
+* DynamicCameraFollow.cs
+* 
+* This script enables the right camera based on the mouse's position.
+*/
+
 using UnityEngine;
 
 public class DynamicCameraFollow : MonoBehaviour

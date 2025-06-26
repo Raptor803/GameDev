@@ -1,3 +1,9 @@
+/**
+* CannonController.cs
+* 
+* This script controls the cannon on top of the cat's back.
+*/
+
 using UnityEngine;
 
 namespace MyGame.Controllers
@@ -6,6 +12,7 @@ namespace MyGame.Controllers
     public class CannonController : MonoBehaviour
     {
         private GameObject mouse;
+        public KeyCode fireKey = KeyCode.C;
         [SerializeField] GameObject projectilePrefab;
         [SerializeField] AudioClip _clipShoot;
 
@@ -16,7 +23,7 @@ namespace MyGame.Controllers
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.V) && mouse.GetComponent<MouseCtrl>().IsOnTop())
+            if (Input.GetKeyDown(fireKey) && mouse.GetComponent<MouseCtrl>().IsOnTop())
             {
                 gameObject.GetComponent<AudioSource>().PlayOneShot(_clipShoot);
                 GameObject projectile = Instantiate(projectilePrefab) as GameObject;

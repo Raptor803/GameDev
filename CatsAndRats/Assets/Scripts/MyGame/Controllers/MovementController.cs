@@ -1,5 +1,10 @@
-using UnityEngine;
+/**
+* MovementController.cs
+* 
+* This script implements movement in the X-Z plane (i.e. the ground).
+*/
 
+using UnityEngine;
 
 namespace MyGame.Controllers
 {
@@ -15,9 +20,9 @@ namespace MyGame.Controllers
 
         // used for character rotation
         private int[][] ANGLES = new int[][]{
-        new int[]{-135,  -90, -45},
-        new int[]{180,  0,  0},
-        new int[]{135,  90, 45}
+            new int[]{-135,  -90, -45},
+            new int[]{180,  0,  0},
+            new int[]{135,  90, 45}
         };
 
         private enum X_DIR { LEFT, STILL, RIGHT };

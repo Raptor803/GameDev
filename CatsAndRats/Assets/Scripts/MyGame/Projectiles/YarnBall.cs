@@ -55,7 +55,6 @@ namespace MyGame.Projectiles
                 transform.position = pos;
                 _currentJumps++;
                 gameObject.GetComponent<AudioSource>().PlayOneShot(gameObject.GetComponent<AudioSource>().clip);
-                //Debug.Log($"RIMBALZO #{_currentJumps}");
 
             }
         }
@@ -79,7 +78,6 @@ namespace MyGame.Projectiles
         public override void Trigger(string tag)
         {
             effectDestroy.SetActive(true);
-            Debug.Log("ciao");
             StartCoroutine(WaitAndDestroy());
         }
 

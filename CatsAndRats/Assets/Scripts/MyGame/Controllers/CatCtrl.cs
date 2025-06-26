@@ -4,7 +4,6 @@
 * This script controls the cat character and animations.
 */
 
-using System.Collections;
 using UnityEngine;
 
 namespace MyGame.Controllers

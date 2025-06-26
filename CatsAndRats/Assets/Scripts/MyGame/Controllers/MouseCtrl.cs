@@ -1,5 +1,10 @@
-using UnityEngine;
+/**
+* MouseCtrl.cs
+* 
+* This script controls the mouse's interaction with the cat.
+*/
 
+using UnityEngine;
 
 namespace MyGame.Controllers
 {
@@ -18,7 +23,6 @@ namespace MyGame.Controllers
         private bool onTop = false;
         public GameObject cat;
         public KeyCode catKey = KeyCode.F; // key to get on/off the cat
-        public KeyCode interactKey = KeyCode.V; // key to interact with the cat
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()

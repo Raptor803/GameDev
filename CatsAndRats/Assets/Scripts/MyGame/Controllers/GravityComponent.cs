@@ -1,3 +1,9 @@
+/**
+* GravityComponent.cs
+* 
+* This script applies gravity to the attached GameObject.
+*/
+
 using UnityEngine;
 
 namespace MyGame
@@ -47,22 +53,21 @@ namespace MyGame
 
         public bool IsGrounded()
         {
-            // assegniamo come layer del terreno "Floor" che andr� settato nell'ispector
+            // The ground layer is labelled as Floor
             LayerMask groundLayer = LayerMask.GetMask("Floor");
 
-            // raggio leggermente sopra i piedi dele personaggio
-            Vector3 rayOrigin = transform.position;// + Vector3.up * 0.01f;
+            // Raycasting from the GameObject's position
+            Vector3 rayOrigin = transform.position;
 
-            // vogliamo controllare il terreno quindi il raggio � verso il basso
+            // We cast a ray downward
             Vector3 rayDirection = Vector3.down;
 
-            // Verifichiamo se il raggio colpisce un oggetto di layer "Floor" (usando l'ultimo parametro come filtro della condizione) 
+            // We check whether it hits something marked as Floor 
             if (Physics.Raycast(rayOrigin, rayDirection, FLOOR_DISTANCE, groundLayer))
             {
                 return true;
             }
 
-            // non siamo a terra
             return false;
         }
 

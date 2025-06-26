@@ -1,5 +1,10 @@
-using UnityEngine;
+/**
+* CameraFollow.cs
+* 
+* This script follows the selected target in the 3D space (it is possible to select which axis).
+*/
 
+using UnityEngine;
 
 namespace MyGame
 {

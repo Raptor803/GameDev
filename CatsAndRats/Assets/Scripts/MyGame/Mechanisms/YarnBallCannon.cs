@@ -50,13 +50,11 @@ namespace MyGame.Mechanisms
 
         public void Enable()
         {
-            Debug.Log("cannone abilitato");
             _state = true;
         }
 
         public void Disable()
         {
-            Debug.Log("cannone disabilitato");
             _state = false;
         }
 

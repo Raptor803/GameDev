@@ -28,11 +28,6 @@ namespace MyGame.Controllers
 
         void OnTriggerEnter(Collider other)
         {
-            /*
-            PlayerCharacter player = other.GetComponent<PlayerCharacter>();
-            if(player != null) {
-                player.Hurt(1);
-            } */
             Destroy(this.gameObject);
         }
 

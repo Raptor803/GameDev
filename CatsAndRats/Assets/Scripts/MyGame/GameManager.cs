@@ -14,8 +14,7 @@ public class GameManager : MonoBehaviour
     {
         IDLE,
         PLAYING,
-        GAMEOVER,
-        REPLAY
+        GAMEOVER
     }
     private Status status;
 
@@ -35,9 +34,6 @@ public class GameManager : MonoBehaviour
                 break;
             case Status.PLAYING:
                 HandlePlaying();
-                break;
-            case Status.REPLAY:
-                HandleReplay();
                 break;
             case Status.GAMEOVER:
                 HandleGameOver();
@@ -82,7 +78,7 @@ public class GameManager : MonoBehaviour
     IEnumerator reloadScene()
     {
         yield return new WaitForSeconds(1);
-        UnityEngine.SceneManagement.Scene scene = SceneManager.GetActiveScene();
+        Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
 
@@ -95,10 +91,5 @@ public class GameManager : MonoBehaviour
             textAnimator.SetTrigger("FadeOut");
             lifeUIAnimator.SetTrigger("Enable");
         }
-    }
-
-    void HandleReplay()
-    {
-        HandlePlaying();
     }
 }   
