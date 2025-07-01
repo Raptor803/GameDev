@@ -1,6 +1,5 @@
 using GameUtils.Core;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 // when tags stays an area that trigger an object, for exemple a YarnBallCannon turns on
 namespace MyGame.Mechanisms

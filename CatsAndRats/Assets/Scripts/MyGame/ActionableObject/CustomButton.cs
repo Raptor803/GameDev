@@ -8,7 +8,7 @@ namespace MyGame.ActionableObject
     {
         public GameObject agent;
         public Actionable target;
-        public const float MAX_DISTANCE = 1f;
+        public const float MAX_DISTANCE = 0.5f;
         public KeyCode activationKey = KeyCode.K;
         public bool needsClearance = false;
 

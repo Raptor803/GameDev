@@ -1,3 +1,15 @@
+/**
+* GameManager.cs
+* 
+* This script handles the status of the Game, 
+* opening and closing animations and 
+* victory/gameover sound effects.
+* There are only two statuses:
+* - IDLE
+* - PLAYING
+*/
+
+
 using System.Collections;
 using GameUtils.Core;
 using UnityEngine;
@@ -9,12 +21,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Animator textAnimator;
     [SerializeField] public Animator lifeUIAnimator;
     [SerializeField] public GameObject mouse, cat;
+    [SerializeField] public AudioClip victorySound;
+    [SerializeField] public AudioClip gameOverSound;
     private float startTime;
     public enum Status
     {
         IDLE,
-        PLAYING,
-        GAMEOVER
+        PLAYING
     }
     private Status status;
 
@@ -34,9 +47,6 @@ public class GameManager : MonoBehaviour
                 break;
             case Status.PLAYING:
                 HandlePlaying();
-                break;
-            case Status.GAMEOVER:
-                HandleGameOver();
                 break;
         }
     }
@@ -59,37 +69,49 @@ public class GameManager : MonoBehaviour
             mouse.GetComponent<DamageHandler>().CurrentHealth == 0 ||
             Input.GetKeyDown(KeyCode.Escape)) // force game over
         {
-            TriggerGameOver();
+            TriggerGameOver(false);
         }
 
     }
 
-    public void TriggerGameOver()
+    public void TriggerGameOver(bool isVictory)
     {
-        status = Status.GAMEOVER;
+        status = Status.IDLE;
         float finishTime = Time.time;
-        print(finishTime - startTime + " seconds");
+        print((isVictory ? "VICTORY!" : "GAME OVER!") + " Elapsed Time: " + (finishTime - startTime) + " seconds");
         cloudAnimator.SetTrigger("MoveIn");
         textAnimator.SetTrigger("FadeIn");
         lifeUIAnimator.SetTrigger("Disable");
-        StartCoroutine(reloadScene());
+
+        StartCoroutine(triggerFinish(isVictory));
     }
 
-    IEnumerator reloadScene()
+    IEnumerator triggerFinish(bool isVictory)
     {
-        yield return new WaitForSeconds(1);
+        float time = triggerSound(isVictory);
+        yield return new WaitForSeconds(time);
+        reloadScene();
+        yield return true;
+    }
+
+    private float triggerSound(bool isVictory)
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        if (isVictory)
+        {
+            audio.PlayOneShot(victorySound);
+            return victorySound.length;
+        }
+        else
+        {
+            audio.PlayOneShot(gameOverSound);
+            return gameOverSound.length;
+        }
+    }
+
+    private void reloadScene()
+    {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
-    }
-
-    void HandleGameOver()
-    {
-        if (Input.anyKeyDown)
-        {
-            status = Status.PLAYING;
-            cloudAnimator.SetTrigger("MoveAway");
-            textAnimator.SetTrigger("FadeOut");
-            lifeUIAnimator.SetTrigger("Enable");
-        }
     }
 }   

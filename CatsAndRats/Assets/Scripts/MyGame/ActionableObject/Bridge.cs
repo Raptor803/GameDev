@@ -32,7 +32,6 @@ namespace MyGame.ActionableObject
         {
             if (!isAnimating)
             {
-                Debug.Log("Inizio abbassamento ponte");
                 StartCoroutine(AnimateBridge());
             }
             
@@ -55,7 +54,6 @@ namespace MyGame.ActionableObject
             }
 
             rotationCenter.transform.localRotation = targetRotation;
-            Debug.Log("Ponte abbassato");
             isAnimating = false;
             _finish = true;
         }

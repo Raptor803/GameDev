@@ -1,9 +1,5 @@
 using GameUtils.Core;
-using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 
 // Cannon that spawn YarnBall projectiles each seconds

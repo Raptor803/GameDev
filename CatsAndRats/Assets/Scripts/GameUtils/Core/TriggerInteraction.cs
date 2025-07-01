@@ -45,12 +45,12 @@ namespace GameUtils.Core
             if(active) {
                 if (other.CompareTag("cat"))
                 {
-                    Debug.Log("cat entered the trigger!");
+                    //Debug.Log("cat entered the trigger!");
                     OnCatEnter();
                 }
                 if (other.CompareTag("mouse"))
                 {
-                    Debug.Log("mouse entered the trigger!");
+                    //Debug.Log("mouse entered the trigger!");
                     OnMouseEnter();
                 }
             }
@@ -61,12 +61,12 @@ namespace GameUtils.Core
             {
                 if (other.CompareTag("cat"))
                 {
-                    Debug.Log("cat entered the trigger!");
+                    //Debug.Log("cat entered the trigger!");
                     OnCatExit();
                 }
                 if (other.CompareTag("mouse"))
                 {
-                    Debug.Log("mouse entered the trigger!");
+                    //Debug.Log("mouse entered the trigger!");
                     OnMouseExit();
                 }
             }
@@ -79,12 +79,12 @@ namespace GameUtils.Core
             {
                 if (other.CompareTag("cat"))
                 {
-                    Debug.Log("cat staying in the trigger!");
+                    //Debug.Log("cat staying in the trigger!");
                     OnCatStaying();
                 }
                 if (other.CompareTag("mouse"))
                 {
-                    Debug.Log("mouse staying in the trigger!");
+                    //Debug.Log("mouse staying in the trigger!");
                     OnMouseStaying();
                 }
             }

@@ -18,12 +18,16 @@ public class DynamicCameraFollow : MonoBehaviour
         {
             if (!GameObject.FindWithTag("mouse").GetComponent<MyGame.Controllers.MouseCtrl>().IsOnTop())
             {
+                FullCamera.GetComponent<AudioListener>().enabled = false;
+                CatCamera.GetComponent<AudioListener>().enabled = true;
                 FullCamera.gameObject.SetActive(false);
                 MouseCamera.gameObject.SetActive(true);
                 CatCamera.gameObject.SetActive(true);
             }
             else
             {
+                FullCamera.GetComponent<AudioListener>().enabled = true;
+                CatCamera.GetComponent<AudioListener>().enabled = false;
                 FullCamera.gameObject.SetActive(true);
                 MouseCamera.gameObject.SetActive(false);
                 CatCamera.gameObject.SetActive(false);
